@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "findSitter": "Find a Sitter",
+    "createAd": "Create Ad",
+    "about": "About Us",
+    "contact": "Contact",
+    "faq": "FAQ"
+  },
+  "footer": {
+    "copyright": "© 2025 Pet Sitter. All rights reserved.",
+    "followUs": "Follow us on"
+  },
+  "home": {
+    "title": "Welcome to Pet Sitter",
+    "subtitle": "Find trusted pet sitters in your area"
+  }
+}

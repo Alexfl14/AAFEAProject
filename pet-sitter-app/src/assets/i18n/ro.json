@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "findSitter": "Găsește un Îngrijitor",
+    "createAd": "Creează Anunț",
+    "about": "Despre Noi",
+    "contact": "Contact",
+    "faq": "Întrebări Frecvente"
+  },
+  "footer": {
+    "copyright": "© 2025 Pet Sitter. Toate drepturile rezervate.",
+    "followUs": "Urmărește-ne pe"
+  },
+  "home": {
+    "title": "Bine ai venit la Pet Sitter",
+    "subtitle": "Găsește îngrijitori de încredere în zona ta"
+  }
+}

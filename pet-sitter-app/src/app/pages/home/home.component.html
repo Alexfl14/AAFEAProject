@@ -1,0 +1,58 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">{{ 'home.title' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'home.subtitle' | translate }}</p>
+        <div class="hero-actions">
+          <a routerLink="/find-sitter" class="btn btn-primary">{{ 'nav.findSitter' | translate }}</a>
+          <a routerLink="/create-ad" class="btn btn-secondary">{{ 'nav.createAd' | translate }}</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-placeholder">
+          <span class="emoji">🐕 🐈 🐾</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose Pet Sitter?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Find Trusted Sitters</h3>
+          <p>Browse verified pet sitters in your area with reviews and ratings.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Easy Scheduling</h3>
+          <p>Book services based on your schedule and your pet's needs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Transparent Pricing</h3>
+          <p>See upfront pricing with no hidden fees or surprises.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Quality Assurance</h3>
+          <p>All sitters are vetted and reviewed by our community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to find the perfect pet sitter?</h2>
+      <p>Join thousands of happy pet owners today!</p>
+      <a routerLink="/find-sitter" class="btn btn-primary">Get Started</a>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,91 @@
+<nav class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a routerLink="/home" class="logo">
+      <span class="logo-icon">🐾</span>
+      <span class="logo-text">Pet Sitter</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="nav-links">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        {{ 'nav.home' | translate }}
+      </a>
+      <a routerLink="/find-sitter" routerLinkActive="active">
+        {{ 'nav.findSitter' | translate }}
+      </a>
+      <a routerLink="/create-ad" routerLinkActive="active">
+        {{ 'nav.createAd' | translate }}
+      </a>
+      <a routerLink="/about" routerLinkActive="active">
+        {{ 'nav.about' | translate }}
+      </a>
+      <a routerLink="/contact" routerLinkActive="active">
+        {{ 'nav.contact' | translate }}
+      </a>
+      <a routerLink="/faq" routerLinkActive="active">
+        {{ 'nav.faq' | translate }}
+      </a>
+    </div>
+
+    <!-- Controls -->
+    <div class="nav-controls">
+      <!-- Dark Mode Toggle -->
+      <button
+        class="control-btn"
+        (click)="toggleDarkMode()"
+        [attr.aria-label]="darkModeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
+        title="Toggle dark mode">
+        <span class="icon">{{ darkModeService.isDarkMode() ? '☀️' : '🌙' }}</span>
+      </button>
+
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button
+          class="control-btn lang-btn"
+          [class.active]="currentLang === 'en'"
+          (click)="switchLanguage('en')"
+          title="Switch to English">
+          EN
+        </button>
+        <span class="separator">|</span>
+        <button
+          class="control-btn lang-btn"
+          [class.active]="currentLang === 'ro'"
+          (click)="switchLanguage('ro')"
+          title="Comută la Română">
+          RO
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span class="hamburger" [class.open]="isMenuOpen"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" [class.open]="isMenuOpen">
+    <div class="mobile-nav-links">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+        {{ 'nav.home' | translate }}
+      </a>
+      <a routerLink="/find-sitter" routerLinkActive="active" (click)="closeMenu()">
+        {{ 'nav.findSitter' | translate }}
+      </a>
+      <a routerLink="/create-ad" routerLinkActive="active" (click)="closeMenu()">
+        {{ 'nav.createAd' | translate }}
+      </a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+        {{ 'nav.about' | translate }}
+      </a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">
+        {{ 'nav.contact' | translate }}
+      </a>
+      <a routerLink="/faq" routerLinkActive="active" (click)="closeMenu()">
+        {{ 'nav.faq' | translate }}
+      </a>
+    </div>
+  </div>
+</nav>
