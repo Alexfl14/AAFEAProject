@@ -3,45 +3,75 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">{{ 'home.title' | translate }}</h1>
-        <p class="hero-subtitle">{{ 'home.subtitle' | translate }}</p>
+        <h1 class="hero-title">Find the perfect pal for your pet</h1>
+        <p class="hero-subtitle">Connect with trusted, verified pet sitters in your area. Your pet's happiness is just a click away.</p>
         <div class="hero-actions">
-          <a routerLink="/find-sitter" class="btn btn-primary">{{ 'nav.findSitter' | translate }}</a>
-          <a routerLink="/create-ad" class="btn btn-secondary">{{ 'nav.createAd' | translate }}</a>
+          <a routerLink="/find-sitter" class="btn btn-primary">Get Started</a>
         </div>
       </div>
       <div class="hero-image">
         <div class="image-placeholder">
-          <span class="emoji">🐕 🐈 🐾</span>
+          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&h=600&fit=crop" alt="Happy pets with sitter" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Features/Objective Section -->
   <section class="features">
     <div class="container">
-      <h2 class="section-title">Why Choose Pet Sitter?</h2>
+      <h2 class="section-title">Why Pet Owners Trust Us</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">🔍</div>
-          <h3>Find Trusted Sitters</h3>
-          <p>Browse verified pet sitters in your area with reviews and ratings.</p>
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3>Verified Sitters</h3>
+          <p>All pet sitters are background-checked and verified for your peace of mind.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📅</div>
-          <h3>Easy Scheduling</h3>
-          <p>Book services based on your schedule and your pet's needs.</p>
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3>Happy Pets</h3>
+          <p>Our sitters provide loving care that keeps tails wagging and purrs going.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Transparent Pricing</h3>
-          <p>See upfront pricing with no hidden fees or surprises.</p>
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3>Secure Booking</h3>
+          <p>Safe and secure payment processing with booking protection guaranteed.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">⭐</div>
-          <h3>Quality Assurance</h3>
-          <p>All sitters are vetted and reviewed by our community.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials/Logos Section -->
+  <section class="trusted-by">
+    <div class="container">
+      <h2 class="section-subtitle">Trusted by pet owners everywhere</h2>
+      <div class="logos-grid">
+        <div class="logo-item">
+          <div class="logo-placeholder">PetCo</div>
+        </div>
+        <div class="logo-item">
+          <div class="logo-placeholder">Rover</div>
+        </div>
+        <div class="logo-item">
+          <div class="logo-placeholder">Wag!</div>
+        </div>
+        <div class="logo-item">
+          <div class="logo-placeholder">PetSmart</div>
+        </div>
+        <div class="logo-item">
+          <div class="logo-placeholder">Chewy</div>
         </div>
       </div>
     </div>
@@ -52,7 +82,7 @@
     <div class="container">
       <h2>Ready to find the perfect pet sitter?</h2>
       <p>Join thousands of happy pet owners today!</p>
-      <a routerLink="/find-sitter" class="btn btn-primary">Get Started</a>
+      <a routerLink="/find-sitter" class="btn btn-cta">Get Started Now</a>
     </div>
   </section>
 </div>
