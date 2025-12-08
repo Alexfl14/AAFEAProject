@@ -1,1 +1,185 @@
-<p>find-sitter works!</p>
+<div class="find-sitter-page">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Find Pet Sitters</h1>
+      <p>Browse available pet care services in your area</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Filters Sidebar -->
+      <aside class="filters-sidebar">
+        <div class="filters-header">
+          <h2>Filters</h2>
+          <button
+            *ngIf="getActiveFiltersCount() > 0"
+            class="btn-clear"
+            (click)="clearFilters()"
+          >
+            Clear All ({{ getActiveFiltersCount() }})
+          </button>
+        </div>
+
+        <!-- Service Type Filter -->
+        <div class="filter-group">
+          <label class="filter-label">Service Type</label>
+          <div class="filter-options">
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="serviceType"
+                value="all"
+                [checked]="selectedServiceType() === 'all'"
+                (change)="onServiceTypeChange('all')"
+              />
+              <span>All Services</span>
+            </label>
+            <label class="radio-option" *ngFor="let type of serviceTypes">
+              <input
+                type="radio"
+                name="serviceType"
+                [value]="type"
+                [checked]="selectedServiceType() === type"
+                (change)="onServiceTypeChange(type)"
+              />
+              <span>{{ type }}</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Location Filter -->
+        <div class="filter-group">
+          <label class="filter-label" for="locationSearch">Location</label>
+          <input
+            type="text"
+            id="locationSearch"
+            class="filter-input"
+            placeholder="Search by city..."
+            [value]="searchLocation()"
+            (input)="onLocationSearch($any($event.target).value)"
+          />
+        </div>
+
+        <!-- Quick Location Filters -->
+        <div class="filter-group">
+          <label class="filter-label">Popular Cities</label>
+          <div class="location-chips">
+            <button
+              *ngFor="let location of locations.slice(0, 6)"
+              class="chip"
+              [class.active]="searchLocation() === location"
+              (click)="onLocationSearch(searchLocation() === location ? '' : location)"
+            >
+              {{ location }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Results Summary -->
+        <div class="results-summary">
+          <p>
+            <strong>{{ filteredJobs().length }}</strong>
+            {{ filteredJobs().length === 1 ? 'result' : 'results' }} found
+          </p>
+        </div>
+      </aside>
+
+      <!-- Jobs Grid -->
+      <main class="jobs-section">
+        <!-- Toolbar -->
+        <div class="jobs-toolbar">
+          <div class="toolbar-info">
+            <p>Showing {{ filteredJobs().length }} of {{ allJobs().length }} listings</p>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn-view-toggle" (click)="toggleViewMode()">
+              <span *ngIf="viewMode() === 'grid'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                List View
+              </span>
+              <span *ngIf="viewMode() === 'list'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Grid View
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- No Results -->
+        <div *ngIf="filteredJobs().length === 0" class="no-results">
+          <div class="no-results-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <h3>No listings found</h3>
+          <p>Try adjusting your filters to see more results</p>
+          <button class="btn btn-primary" (click)="clearFilters()">
+            Clear Filters
+          </button>
+        </div>
+
+        <!-- Jobs Grid/List -->
+        <div class="jobs-grid" [class.list-view]="viewMode() === 'list'">
+          <div
+            *ngFor="let job of filteredJobs()"
+            class="job-card"
+            (click)="viewJobDetails(job.id)"
+          >
+            <!-- Favorite Button -->
+            <button
+              class="btn-favorite"
+              [class.is-favorite]="job.isFavorite"
+              (click)="toggleFavorite($event, job.id)"
+              [attr.aria-label]="job.isFavorite ? 'Remove from favorites' : 'Add to favorites'"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </button>
+
+            <!-- Job Image -->
+            <div class="job-image">
+              <img [src]="job.image" [alt]="job.title" />
+              <div class="service-badge">{{ job.serviceType }}</div>
+            </div>
+
+            <!-- Job Info -->
+            <div class="job-info">
+              <h3 class="job-title">{{ job.title }}</h3>
+              <p class="job-provider">by {{ job.name }}</p>
+              <p class="job-description">{{ job.description }}</p>
+
+              <div class="job-meta">
+                <div class="job-location">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  {{ job.location }}
+                </div>
+                <div class="job-price">${{ job.price }}/hr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
