@@ -28,12 +28,13 @@
       <section class="faq-section" *ngIf="getItemsByCategory('forOwners').length > 0">
         <div class="section-header">
           <h2>{{ 'faq.forOwners' | translate }}</h2>
-          <button class="btn-expand" (click)="expandCategory('forOwners')">
+          <button class="btn-expand" (click)="toggleCategory('forOwners')">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2">
+              stroke="currentColor" stroke-width="2" style="transition: transform 0.3s"
+              [style.transform]="hasAnyExpanded('forOwners') ? 'rotate(180deg)' : ''">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-            {{ 'faq.expandAll' | translate }}
+            {{ (hasAnyExpanded('forOwners') ? 'faq.collapseAll' : 'faq.expandAll') | translate }}
           </button>
         </div>
         <div class="accordion">
@@ -57,12 +58,13 @@
       <section class="faq-section" *ngIf="getItemsByCategory('forSitters').length > 0">
         <div class="section-header">
           <h2>{{ 'faq.forSitters' | translate }}</h2>
-          <button class="btn-expand" (click)="expandCategory('forSitters')">
+          <button class="btn-expand" (click)="toggleCategory('forSitters')">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2">
+              stroke="currentColor" stroke-width="2" style="transition: transform 0.3s"
+              [style.transform]="hasAnyExpanded('forSitters') ? 'rotate(180deg)' : ''">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-            {{ 'faq.expandAll' | translate }}
+            {{ (hasAnyExpanded('forSitters') ? 'faq.collapseAll' : 'faq.expandAll') | translate }}
           </button>
         </div>
         <div class="accordion">
@@ -86,12 +88,13 @@
       <section class="faq-section" *ngIf="getItemsByCategory('general').length > 0">
         <div class="section-header">
           <h2>{{ 'faq.general' | translate }}</h2>
-          <button class="btn-expand" (click)="expandCategory('general')">
+          <button class="btn-expand" (click)="toggleCategory('general')">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2">
+              stroke="currentColor" stroke-width="2" style="transition: transform 0.3s"
+              [style.transform]="hasAnyExpanded('general') ? 'rotate(180deg)' : ''">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-            {{ 'faq.expandAll' | translate }}
+            {{ (hasAnyExpanded('general') ? 'faq.collapseAll' : 'faq.expandAll') | translate }}
           </button>
         </div>
         <div class="accordion">

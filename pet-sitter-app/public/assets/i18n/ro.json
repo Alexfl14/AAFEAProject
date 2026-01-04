@@ -83,6 +83,7 @@
         "forSitters": "Pentru Îngrijitori",
         "general": "General",
         "expandAll": "Extinde Tot",
+        "collapseAll": "Restrânge Tot",
         "noResultsTitle": "Niciun rezultat găsit",
         "noResultsDesc": "Încearcă să ajustezi termenii de căutare",
         "contactDesc": "Suntem aici să ajutăm! Contactează echipa noastră de suport.",
@@ -201,6 +202,34 @@
             "title": "Ești gata să găsești îngrijitorul perfect?",
             "desc": "Alătură-te miilor de proprietari care au încredere în noi pentru a avea grijă de animalele lor cu dragoste și profesionalism.",
             "btn": "Începe Astăzi"
+        }
+    },
+    "contact": {
+        "title": "Contactează-ne",
+        "subtitle": "Ai întrebări? Ne-ar plăcea să te auzim. Trimite-ne un mesaj și îți vom răspunde cât mai curând posibil.",
+        "form": {
+            "firstName": "Prenume",
+            "lastName": "Nume",
+            "email": "Adresă de Email",
+            "phone": "Număr de Telefon",
+            "subject": "Subiect",
+            "message": "Mesajul Tău",
+            "submit": "Trimite Mesaj",
+            "success": "Mesaj trimis cu succes!",
+            "validation": {
+                "required": "Acest câmp este obligatoriu.",
+                "email": "Te rugăm să introduci o adresă de email validă.",
+                "phone": "Te rugăm să introduci un număr de telefon valid (min 10 cifre).",
+                "messageLength": "Mesajul trebuie să aibă cel puțin 10 caractere."
+            }
+        },
+        "info": {
+            "title": "Informații de Contact",
+            "email": "Email",
+            "phone": "Telefon",
+            "address": "Birou",
+            "hours": "Program de Lucru",
+            "hoursValue": "Luni - Vineri: 9:00 - 18:00"
         }
     }
 }

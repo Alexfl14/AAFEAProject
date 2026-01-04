@@ -21,7 +21,7 @@ interface FaqItem {
 })
 export class FaqComponent {
   searchQuery = signal<string>('');
-  
+
   // FAQ items organized by category
   faqItems = signal<FaqItem[]>([
     // For Pet Owners
@@ -119,10 +119,10 @@ export class FaqComponent {
     if (!query) {
       return this.faqItems();
     }
-    
+
     // Note: In a real app, you'd translate the questions/answers first
     // For now, we filter by ID which contains keywords
-    return this.faqItems().filter(item => 
+    return this.faqItems().filter(item =>
       item.id.toLowerCase().includes(query) ||
       item.questionKey.toLowerCase().includes(query)
     );
@@ -154,12 +154,21 @@ export class FaqComponent {
     this.searchQuery.set(query);
   }
 
-  // Expand all items in a category
-  expandCategory(category: 'forOwners' | 'forSitters' | 'general'): void {
+  // Check if any items in a category are expanded
+  hasAnyExpanded(category: 'forOwners' | 'forSitters' | 'general'): boolean {
+    const items = this.getItemsByCategory(category);
+    return items.some(item => item.isOpen);
+  }
+
+  // Toggle all items in a category (Expand All / Collapse All)
+  toggleCategory(category: 'forOwners' | 'forSitters' | 'general'): void {
+    const shouldCollapse = this.hasAnyExpanded(category);
+    const newState = !shouldCollapse;
+
     const items = this.faqItems();
     const updatedItems = items.map(item => ({
       ...item,
-      isOpen: item.category === category ? true : item.isOpen
+      isOpen: item.category === category ? newState : item.isOpen
     }));
     this.faqItems.set(updatedItems);
   }

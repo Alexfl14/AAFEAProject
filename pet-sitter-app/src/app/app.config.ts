@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom, APP_INITIALIZER } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, HttpClient } from '@angular/common/http';
@@ -34,7 +34,7 @@ export function appInitializerFactory(translate: TranslateService) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })),
     provideHttpClient(),
     importProvidersFrom(
       TranslateModule.forRoot({

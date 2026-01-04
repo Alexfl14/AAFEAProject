@@ -83,6 +83,7 @@
         "forSitters": "For Pet Sitters",
         "general": "General",
         "expandAll": "Expand All",
+        "collapseAll": "Collapse All",
         "noResultsTitle": "No results found",
         "noResultsDesc": "Try adjusting your search terms",
         "contactDesc": "We're here to help! Reach out to our support team.",
@@ -201,6 +202,34 @@
             "title": "Ready to Find the Perfect Pet Sitter?",
             "desc": "Join thousands of pet owners who trust us to care for their pets with love and professionalism.",
             "btn": "Get Started Today"
+        }
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+        "form": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email Address",
+            "phone": "Phone Number",
+            "subject": "Subject",
+            "message": "Your Message",
+            "submit": "Send Message",
+            "success": "Message sent successfully!",
+            "validation": {
+                "required": "This field is required.",
+                "email": "Please enter a valid email address.",
+                "phone": "Please enter a valid phone number (min 10 digits).",
+                "messageLength": "Message must be at least 10 characters long."
+            }
+        },
+        "info": {
+            "title": "Contact Information",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Office",
+            "hours": "Business Hours",
+            "hoursValue": "Mon - Fri: 9:00 AM - 6:00 PM"
         }
     }
 }
