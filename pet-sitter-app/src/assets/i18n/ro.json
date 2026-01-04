@@ -14,5 +14,65 @@
   "home": {
     "title": "Bine ai venit la Pet Sitter",
     "subtitle": "Găsește îngrijitori de încredere în zona ta"
+  },
+  "faq": {
+    "title": "Întrebări Frecvente",
+    "subtitle": "Găsește răspunsuri la întrebările comune despre serviciile noastre de îngrijire a animalelor",
+    "searchPlaceholder": "Caută răspunsuri...",
+    "stillHaveQuestions": "Mai ai întrebări?",
+    "contactUs": "Contactează-ne",
+    "forOwners": "Pentru Proprietari de Animale",
+    "forSitters": "Pentru Îngrijitori",
+    "general": "General",
+    "questions": {
+      "howItWorks": {
+        "q": "Cum funcționează Pet Sitter?",
+        "a": "Pet Sitter conectează proprietarii de animale cu îngrijitori verificați și de încredere din zona lor. Pur și simplu răsfoiește îngrijitorii disponibili, citește recenziile și rezervă potrivirea perfectă pentru nevoile animalului tău."
+      },
+      "cost": {
+        "q": "Cât costă?",
+        "a": "Prețurile variază în funcție de tipul de serviciu și îngrijitor. Majoritatea serviciilor variază între 18-80 RON pe oră. Poți filtra după interval de preț pentru a găsi opțiuni care se potrivesc bugetului tău."
+      },
+      "safety": {
+        "q": "Sunt îngrijitorii verificați?",
+        "a": "Da! Toți îngrijitorii de pe platforma noastră sunt supuși verificărilor de antecedente și verificării. Ne asigurăm că au experiență și dragoste genuină pentru animale."
+      },
+      "booking": {
+        "q": "Cum rezerv un îngrijitor de animale?",
+        "a": "Răsfoiește îngrijitorii disponibili, selectează unul care se potrivește nevoilor tale și apasă 'Rezervă Acum'. Vei putea comunica direct cu îngrijitorul pentru a aranja detaliile."
+      },
+      "cancellation": {
+        "q": "Care este politica de anulare?",
+        "a": "Poți anula cu până la 24 de ore înainte de serviciul programat pentru o rambursare completă. Anulările în decurs de 24 de ore pot implica o taxă."
+      },
+      "emergency": {
+        "q": "Ce se întâmplă în caz de urgență?",
+        "a": "Toți îngrijitorii au acces la asistență 24/7. În caz de urgență, pot contacta echipa noastră imediat și vor urma instrucțiunile tale de îngrijire de urgență pentru animalul tău."
+      },
+      "becomeSitter": {
+        "q": "Cum devin îngrijitor de animale?",
+        "a": "Apasă 'Creează Anunț' pentru a-ți configura profilul de îngrijitor. Va trebui să furnizezi informații despre experiența ta, serviciile oferite și disponibilitate. După verificare, poți începe să accepți rezervări."
+      },
+      "earnings": {
+        "q": "Cât pot câștiga ca îngrijitor?",
+        "a": "Veniturile depind de serviciile tale, tarifele și disponibilitatea. Majoritatea îngrijitorilor câștigă între 500-3000 RON pe lună. Îți stabilești propriile tarife și program."
+      },
+      "payment": {
+        "q": "Cum primesc plățile?",
+        "a": "Plățile sunt procesate în siguranță prin platforma noastră. Fondurile sunt transferate în contul tău în 2-3 zile lucrătoare după finalizarea serviciului."
+      },
+      "insurance": {
+        "q": "Sunt asigurat ca îngrijitor?",
+        "a": "Da, toate rezervările făcute prin Pet Sitter includ acoperire de asigurare de răspundere civilă atât pentru îngrijitori, cât și pentru proprietarii de animale în timpul perioadei de serviciu."
+      },
+      "multiPets": {
+        "q": "Pot avea grijă de mai multe animale?",
+        "a": "Absolut! Mulți îngrijitori oferă reduceri pentru mai multe animale din aceeași familie. Poți specifica acest lucru în descrierea serviciului tău."
+      },
+      "reviews": {
+        "q": "Cum funcționează recenziile?",
+        "a": "După fiecare serviciu, atât proprietarii de animale, cât și îngrijitorii pot lăsa recenzii. Recenziile ajută la construirea încrederii și îmbunătățirea calității comunității noastre."
+      }
+    }
   }
 }

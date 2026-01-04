@@ -1,1 +1,141 @@
-<p>faq works!</p>
+<div class="faq-page">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>{{ 'faq.title' | translate }}</h1>
+      <p>{{ 'faq.subtitle' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Search Bar -->
+    <div class="search-section">
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input
+          type="text"
+          [placeholder]="'faq.searchPlaceholder' | translate"
+          [value]="searchQuery()"
+          (input)="onSearchChange($any($event.target).value)"
+          class="search-input"
+        />
+      </div>
+    </div>
+
+    <!-- FAQ Sections -->
+    <div class="faq-content">
+      <!-- For Pet Owners Section -->
+      <section class="faq-section" *ngIf="getItemsByCategory('forOwners').length > 0">
+        <div class="section-header">
+          <h2>{{ 'faq.forOwners' | translate }}</h2>
+          <button class="btn-expand" (click)="expandCategory('forOwners')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Expand All
+          </button>
+        </div>
+        <div class="accordion">
+          <div
+            *ngFor="let item of getItemsByCategory('forOwners')"
+            class="accordion-item"
+            [class.is-open]="isItemOpen(item.id)"
+          >
+            <button class="accordion-header" (click)="toggleItem(item.id)">
+              <span class="question">{{ item.questionKey | translate }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chevron">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content" [class.is-open]="isItemOpen(item.id)">
+              <p>{{ item.answerKey | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- For Pet Sitters Section -->
+      <section class="faq-section" *ngIf="getItemsByCategory('forSitters').length > 0">
+        <div class="section-header">
+          <h2>{{ 'faq.forSitters' | translate }}</h2>
+          <button class="btn-expand" (click)="expandCategory('forSitters')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Expand All
+          </button>
+        </div>
+        <div class="accordion">
+          <div
+            *ngFor="let item of getItemsByCategory('forSitters')"
+            class="accordion-item"
+            [class.is-open]="isItemOpen(item.id)"
+          >
+            <button class="accordion-header" (click)="toggleItem(item.id)">
+              <span class="question">{{ item.questionKey | translate }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chevron">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content" [class.is-open]="isItemOpen(item.id)">
+              <p>{{ item.answerKey | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- General Section -->
+      <section class="faq-section" *ngIf="getItemsByCategory('general').length > 0">
+        <div class="section-header">
+          <h2>{{ 'faq.general' | translate }}</h2>
+          <button class="btn-expand" (click)="expandCategory('general')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            Expand All
+          </button>
+        </div>
+        <div class="accordion">
+          <div
+            *ngFor="let item of getItemsByCategory('general')"
+            class="accordion-item"
+            [class.is-open]="isItemOpen(item.id)"
+          >
+            <button class="accordion-header" (click)="toggleItem(item.id)">
+              <span class="question">{{ item.questionKey | translate }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chevron">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content" [class.is-open]="isItemOpen(item.id)">
+              <p>{{ item.answerKey | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- No Results -->
+      <div *ngIf="filteredItems().length === 0" class="no-results">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <h3>No results found</h3>
+        <p>Try adjusting your search terms</p>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-cta">
+      <div class="cta-content">
+        <h3>{{ 'faq.stillHaveQuestions' | translate }}</h3>
+        <p>We're here to help! Reach out to our support team.</p>
+        <a routerLink="/contact" class="btn btn-primary">{{ 'faq.contactUs' | translate }}</a>
+      </div>
+    </div>
+  </div>
+</div>

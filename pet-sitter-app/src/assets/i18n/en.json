@@ -14,5 +14,65 @@
   "home": {
     "title": "Welcome to Pet Sitter",
     "subtitle": "Find trusted pet sitters in your area"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our pet sitting services",
+    "searchPlaceholder": "Search for answers...",
+    "stillHaveQuestions": "Still have questions?",
+    "contactUs": "Contact Us",
+    "forOwners": "For Pet Owners",
+    "forSitters": "For Pet Sitters",
+    "general": "General",
+    "questions": {
+      "howItWorks": {
+        "q": "How does Pet Sitter work?",
+        "a": "Pet Sitter connects pet owners with trusted, verified pet sitters in their area. Simply browse available sitters, read reviews, and book the perfect match for your pet's needs."
+      },
+      "cost": {
+        "q": "How much does it cost?",
+        "a": "Prices vary depending on the service type and sitter. Most services range from 18-80 RON per hour. You can filter by price range to find options that fit your budget."
+      },
+      "safety": {
+        "q": "Are pet sitters verified?",
+        "a": "Yes! All pet sitters on our platform undergo background checks and verification. We ensure they have experience and genuine love for animals."
+      },
+      "booking": {
+        "q": "How do I book a pet sitter?",
+        "a": "Browse available sitters, select one that matches your needs, and click 'Book Now'. You'll be able to communicate directly with the sitter to arrange details."
+      },
+      "cancellation": {
+        "q": "What is the cancellation policy?",
+        "a": "You can cancel up to 24 hours before the scheduled service for a full refund. Cancellations within 24 hours may incur a fee."
+      },
+      "emergency": {
+        "q": "What happens in an emergency?",
+        "a": "All sitters have access to 24/7 support. In case of emergency, they can contact our team immediately and will follow your pet's emergency care instructions."
+      },
+      "becomeSitter": {
+        "q": "How do I become a pet sitter?",
+        "a": "Click 'Create Ad' to set up your sitter profile. You'll need to provide information about your experience, services offered, and availability. After verification, you can start accepting bookings."
+      },
+      "earnings": {
+        "q": "How much can I earn as a sitter?",
+        "a": "Earnings depend on your services, rates, and availability. Most sitters earn between 500-3000 RON per month. You set your own rates and schedule."
+      },
+      "payment": {
+        "q": "How do I receive payments?",
+        "a": "Payments are processed securely through our platform. Funds are transferred to your account within 2-3 business days after service completion."
+      },
+      "insurance": {
+        "q": "Am I insured as a sitter?",
+        "a": "Yes, all bookings made through Pet Sitter include liability insurance coverage for both sitters and pet owners during the service period."
+      },
+      "multiPets": {
+        "q": "Can I care for multiple pets?",
+        "a": "Absolutely! Many sitters offer discounts for multiple pets from the same family. You can specify this in your service description."
+      },
+      "reviews": {
+        "q": "How do reviews work?",
+        "a": "After each service, both pet owners and sitters can leave reviews. Reviews help build trust and improve the quality of our community."
+      }
+    }
   }
 }

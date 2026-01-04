@@ -31,9 +31,7 @@
     <!-- Controls -->
     <div class="nav-controls">
       <!-- Dark Mode Toggle -->
-      <button
-        class="control-btn"
-        (click)="toggleDarkMode()"
+      <button class="control-btn" (click)="toggleDarkMode()"
         [attr.aria-label]="darkModeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
         title="Toggle dark mode">
         <span class="icon">{{ darkModeService.isDarkMode() ? '☀️' : '🌙' }}</span>
@@ -41,18 +39,12 @@
 
       <!-- Language Switcher -->
       <div class="language-switcher">
-        <button
-          class="control-btn lang-btn"
-          [class.active]="currentLang === 'en'"
-          (click)="switchLanguage('en')"
+        <button class="control-btn lang-btn" [class.active]="currentLang === 'en'" (click)="switchLanguage('en')"
           title="Switch to English">
           EN
         </button>
         <span class="separator">|</span>
-        <button
-          class="control-btn lang-btn"
-          [class.active]="currentLang === 'ro'"
-          (click)="switchLanguage('ro')"
+        <button class="control-btn lang-btn" [class.active]="currentLang === 'ro'" (click)="switchLanguage('ro')"
           title="Comută la Română">
           RO
         </button>
@@ -86,6 +78,25 @@
       <a routerLink="/faq" routerLinkActive="active" (click)="closeMenu()">
         {{ 'nav.faq' | translate }}
       </a>
+
+      <!-- Mobile Controls -->
+      <div class="mobile-controls">
+        <!-- Language Switcher -->
+        <div class="mobile-language-switcher">
+          <button class="mobile-lang-btn" [class.active]="currentLang === 'en'" (click)="switchLanguage('en')">
+            EN
+          </button>
+          <button class="mobile-lang-btn" [class.active]="currentLang === 'ro'" (click)="switchLanguage('ro')">
+            RO
+          </button>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button class="mobile-dark-mode-btn" (click)="toggleDarkMode()">
+          <span class="icon">{{ darkModeService.isDarkMode() ? '☀️' : '🌙' }}</span>
+          <span>{{ darkModeService.isDarkMode() ? 'Light Mode' : 'Dark Mode' }}</span>
+        </button>
+      </div>
     </div>
   </div>
 </nav>
