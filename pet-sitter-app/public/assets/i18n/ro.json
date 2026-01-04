@@ -1,0 +1,206 @@
+{
+    "nav": {
+        "home": "Acasă",
+        "findSitter": "Găsește Îngrijitor",
+        "createAd": "Creează Anunț",
+        "about": "Despre Noi",
+        "contact": "Contact",
+        "faq": "Întrebări Frecvente",
+        "lightMode": "Mod Luminos",
+        "darkMode": "Mod Întunecat",
+        "toggleLight": "Comută la modul luminos",
+        "toggleDark": "Comută la modul întunecat",
+        "toggleMenu": "Comută meniul",
+        "switchEn": "Comută la Engleză",
+        "switchRo": "Comută la Română"
+    },
+    "footer": {
+        "copyright": "© 2025 Pet Sitter. Toate drepturile rezervate.",
+        "followUs": "Urmărește-ne pe",
+        "description": "Platforma ta de încredere pentru găsirea îngrijitorilor de animale în zona ta."
+    },
+    "home": {
+        "heroTitle": "Găsește prietenul perfect pentru animalul tău",
+        "heroSubtitle": "Conectează-te cu îngrijitori verificați și de încredere din zona ta. Fericirea animalului tău e la un click distanță.",
+        "getStarted": "Începe Acum",
+        "whyTrustUs": "De ce au încredere proprietarii în noi",
+        "features": {
+            "verified": {
+                "title": "Îngrijitori Verificați",
+                "desc": "Toți îngrijitorii sunt verificați pentru liniștea ta sufletească."
+            },
+            "happy": {
+                "title": "Animale Fericite",
+                "desc": "Îngrijitorii noștri oferă îngrijire cu dragoste care menține cozile dând din fericire."
+            },
+            "secure": {
+                "title": "Rezervare Sigură",
+                "desc": "Procesare sigură a plăților cu protecția rezervării garantată."
+            }
+        },
+        "trustedBy": "De încredere pentru proprietarii de animale de pretutindeni",
+        "cta": {
+            "title": "Ești gata să găsești îngrijitorul perfect?",
+            "subtitle": "Alătură-te miilor de proprietari fericiți astăzi!",
+            "btn": "Începe Acum"
+        }
+    },
+    "findSitter": {
+        "title": "Găsește Îngrijitori",
+        "subtitle": "Răsfoiește serviciile de îngrijire disponibile în zona ta",
+        "jobDetails": "Detalii Anunț",
+        "filters": "Filtre",
+        "clearAll": "Șterge Tot",
+        "serviceType": "Tip Serviciu",
+        "allServices": "Toate Serviciile",
+        "location": "Locație",
+        "searchLocationPlaceholder": "Caută după oraș...",
+        "popularCities": "Orașe Populare",
+        "result": "rezultat",
+        "results": "rezultate",
+        "found": "găsite",
+        "showing": "Se afișează {{filtered}} din {{total}} anunțuri",
+        "listView": "Listă",
+        "gridView": "Grilă",
+        "noListings": "Nu s-au găsit anunțuri",
+        "adjustFilters": "Încearcă să ajustezi filtrele pentru a vedea mai multe rezultate",
+        "clearFilters": "Șterge Filtrele",
+        "perHour": "RON/oră",
+        "by": "de",
+        "serviceTypes": {
+            "Daycare": "Grădiniță",
+            "Training": "Dresaj",
+            "Walking": "Plimbare"
+        }
+    },
+    "faq": {
+        "title": "Întrebări Frecvente",
+        "subtitle": "Găsește răspunsuri la întrebările comune despre serviciile noastre de îngrijire a animalelor",
+        "searchPlaceholder": "Caută răspunsuri...",
+        "stillHaveQuestions": "Mai ai întrebări?",
+        "contactUs": "Contactează-ne",
+        "forOwners": "Pentru Proprietari de Animale",
+        "forSitters": "Pentru Îngrijitori",
+        "general": "General",
+        "expandAll": "Extinde Tot",
+        "noResultsTitle": "Niciun rezultat găsit",
+        "noResultsDesc": "Încearcă să ajustezi termenii de căutare",
+        "contactDesc": "Suntem aici să ajutăm! Contactează echipa noastră de suport.",
+        "questions": {
+            "howItWorks": {
+                "q": "Cum funcționează Pet Sitter?",
+                "a": "Pet Sitter conectează proprietarii de animale cu îngrijitori verificați și de încredere din zona lor. Pur și simplu răsfoiește îngrijitorii disponibili, citește recenziile și rezervă potrivirea perfectă pentru nevoile animalului tău."
+            },
+            "cost": {
+                "q": "Cât costă?",
+                "a": "Prețurile variază în funcție de tipul de serviciu și îngrijitor. Majoritatea serviciilor variază între 18-80 RON pe oră. Poți filtra după interval de preț pentru a găsi opțiuni care se potrivesc bugetului tău."
+            },
+            "safety": {
+                "q": "Sunt îngrijitorii verificați?",
+                "a": "Da! Toți îngrijitorii de pe platforma noastră sunt supuși verificărilor de antecedente și verificării. Ne asigurăm că au experiență și dragoste genuină pentru animale."
+            },
+            "booking": {
+                "q": "Cum rezerv un îngrijitor de animale?",
+                "a": "Răsfoiește îngrijitorii disponibili, selectează unul care se potrivește nevoilor tale și apasă 'Rezervă Acum'. Vei putea comunica direct cu îngrijitorul pentru a aranja detaliile."
+            },
+            "cancellation": {
+                "q": "Care este politica de anulare?",
+                "a": "Poți anula cu până la 24 de ore înainte de serviciul programat pentru o rambursare completă. Anulările în decurs de 24 de ore pot implica o taxă."
+            },
+            "emergency": {
+                "q": "Ce se întâmplă în caz de urgență?",
+                "a": "Toți îngrijitorii au acces la asistență 24/7. În caz de urgență, pot contacta echipa noastră imediat și vor urma instrucțiunile tale de îngrijire de urgență pentru animalul tău."
+            },
+            "becomeSitter": {
+                "q": "Cum devin îngrijitor de animale?",
+                "a": "Apasă 'Creează Anunț' pentru a-ți configura profilul de îngrijitor. Va trebui să furnizezi informații despre experiența ta, serviciile oferite și disponibilitate. După verificare, poți începe să accepți rezervări."
+            },
+            "earnings": {
+                "q": "Cât pot câștiga ca îngrijitor?",
+                "a": "Veniturile depind de serviciile tale, tarifele și disponibilitatea. Majoritatea îngrijitorilor câștigă între 500-3000 RON pe lună. Îți stabilești propriile tarife și program."
+            },
+            "payment": {
+                "q": "Cum primesc plățile?",
+                "a": "Plățile sunt procesate în siguranță prin platforma noastră. Fondurile sunt transferate în contul tău în 2-3 zile lucrătoare după finalizarea serviciului."
+            },
+            "insurance": {
+                "q": "Sunt asigurat ca îngrijitor?",
+                "a": "Da, toate rezervările făcute prin Pet Sitter includ acoperire de asigurare de răspundere civilă atât pentru îngrijitori, cât și pentru proprietarii de animale în timpul perioadei de serviciu."
+            },
+            "multiPets": {
+                "q": "Pot avea grijă de mai multe animale?",
+                "a": "Absolut! Mulți îngrijitori oferă reduceri pentru mai multe animale din aceeași familie. Poți specifica acest lucru în descrierea serviciului tău."
+            },
+            "reviews": {
+                "q": "Cum funcționează recenziile?",
+                "a": "După fiecare serviciu, atât proprietarii de animale, cât și îngrijitorii pot lăsa recenzii. Recenziile ajută la construirea încrederii și îmbunătățirea calității comunității noastre."
+            }
+        }
+    },
+    "about": {
+        "hero": {
+            "title": "Îngrijire cu Dragoste pentru Animalele Tale, Oricând Ai Nevoie",
+            "subtitle": "Îngrijitori de încredere oferind îngrijire sigură, fiabilă și personalizată pentru animale de toate felurile."
+        },
+        "mission": {
+            "title": "Misiunea Noastră",
+            "desc": "Misiunea noastră este să conectăm proprietarii de animale cu îngrijitori grijulii și experimentați care tratează fiecare animal ca pe un membru al familiei. Ne propunem să facem îngrijirea animalelor lipsită de stres, sigură și plină de iubire."
+        },
+        "story": {
+            "title": "Povestea Noastră",
+            "desc": "Am început cu o idee simplă: animalele merită aceeași grijă ca și oamenii. Ceea ce a început ca un mic grup de iubitori de animale a crescut într-o comunitate de încredere pentru îngrijirea animalelor, servind mii de animale și proprietari fericiți."
+        },
+        "values": {
+            "title": "Valorile Noastre",
+            "trust": {
+                "title": "Încredere",
+                "desc": "Fiecare îngrijitor este verificat cu atenție pentru a ne asigura că animalul tău este întotdeauna pe mâini sigure și de încredere."
+            },
+            "quality": {
+                "title": "Calitate",
+                "desc": "Ne concentrăm pe îngrijire de înaltă calitate, de la plimbări zilnice la cazare peste noapte, adaptată nevoilor animalului tău."
+            },
+            "community": {
+                "title": "Comunitate",
+                "desc": "Credem în construirea unor relații puternice între proprietarii de animale, îngrijitori și comunitățile locale."
+            },
+            "transparency": {
+                "title": "Transparență",
+                "desc": "Comunicarea clară, recenziile oneste și prețurile transparente sunt în centrul a tot ceea ce facem."
+            }
+        },
+        "services": {
+            "title": "Serviciile Noastre",
+            "walking": {
+                "title": "Plimbare Câini",
+                "desc": "Plimbări regulate și la cerere pentru a-ți menține câinele sănătos, activ și fericit."
+            },
+            "daycare": {
+                "title": "Grădiniță pentru Animale",
+                "desc": "Un mediu sigur și distractiv unde animalele se pot juca, odihni și primi îngrijire atentă în timpul zilei."
+            },
+            "training": {
+                "title": "Dresaj",
+                "desc": "Antrenament de bază și suport comportamental pentru a ajuta animalele să învețe obiceiuri bune și să capete încredere."
+            }
+        },
+        "coverage": {
+            "title": "Acoperire Extinsă",
+            "desc": "Îngrijitorii noștri de încredere sunt disponibili în orașe din toată regiunea, făcând ușoară găsirea îngrijirii oriunde te-ai afișa.",
+            "stats": {
+                "cities": "Orașe",
+                "sitters": "Îngrijitori",
+                "pets": "Animale Fericite"
+            }
+        },
+        "partners": {
+            "title": "Partenerii Noștri",
+            "desc": "Lucrăm cu branduri și organizații de top pentru a oferi cele mai bune produse, servicii și suport pentru animale și proprietarii lor."
+        },
+        "cta": {
+            "title": "Ești gata să găsești îngrijitorul perfect?",
+            "desc": "Alătură-te miilor de proprietari care au încredere în noi pentru a avea grijă de animalele lor cu dragoste și profesionalism.",
+            "btn": "Începe Astăzi"
+        }
+    }
+}

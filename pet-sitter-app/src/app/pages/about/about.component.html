@@ -3,8 +3,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">Loving Care for Your Pets, Anytime You Need</h1>
-        <p class="hero-subtitle">Trusted pet sitters providing safe, reliable, and personalized care for pets of all kinds.</p>
+        <h1 class="hero-title">{{ 'about.hero.title' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'about.hero.subtitle' | translate }}</p>
       </div>
     </div>
   </section>
@@ -14,12 +14,13 @@
     <div class="container">
       <div class="content-wrapper">
         <div class="text-content">
-          <h2 class="section-title">Pet Care Mission</h2>
-          <p class="section-description">Our mission is to connect pet owners with caring, experienced sitters who treat every pet like family. We aim to make pet care stress-free, safe, and full of love.</p>
+          <h2 class="section-title">{{ 'about.mission.title' | translate }}</h2>
+          <p class="section-description">{{ 'about.mission.desc' | translate }}</p>
         </div>
         <div class="image-content">
           <div class="image-placeholder">
-            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=500&h=400&fit=crop" alt="Pet care mission" />
+            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=500&h=400&fit=crop"
+              alt="Pet care mission" />
           </div>
         </div>
       </div>
@@ -32,12 +33,13 @@
       <div class="content-wrapper reverse">
         <div class="image-content">
           <div class="image-placeholder">
-            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&h=400&fit=crop" alt="Our story" />
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&h=400&fit=crop"
+              alt="Our story" />
           </div>
         </div>
         <div class="text-content">
-          <h2 class="section-title">Our Story</h2>
-          <p class="section-description">We started with a simple idea: pets deserve the same care and attention as people. What began as a small group of animal lovers has grown into a trusted pet care community serving thousands of happy pets and owners.</p>
+          <h2 class="section-title">{{ 'about.story.title' | translate }}</h2>
+          <p class="section-description">{{ 'about.story.desc' | translate }}</p>
         </div>
       </div>
     </div>
@@ -46,44 +48,52 @@
   <!-- Values Section -->
   <section class="values">
     <div class="container">
-      <h2 class="section-title centered">Our Values</h2>
+      <h2 class="section-title centered">{{ 'about.values.title' | translate }}</h2>
       <div class="values-grid">
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3>Trust</h3>
-          <p>Every sitter is carefully reviewed to ensure your pet is always in safe and reliable hands.</p>
+          <h3>{{ 'about.values.trust.title' | translate }}</h3>
+          <p>{{ 'about.values.trust.desc' | translate }}</p>
         </div>
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
           </div>
-          <h3>Quality Care</h3>
-          <p>We focus on high-quality pet care, from daily walks to overnight stays, tailored to your pet's needs.</p>
+          <h3>{{ 'about.values.quality.title' | translate }}</h3>
+          <p>{{ 'about.values.quality.desc' | translate }}</p>
         </div>
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <h3>Community</h3>
-          <p>We believe in building strong relationships between pet owners, sitters, and local communities.</p>
+          <h3>{{ 'about.values.community.title' | translate }}</h3>
+          <p>{{ 'about.values.community.desc' | translate }}</p>
         </div>
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-              <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
           </div>
-          <h3>Transparency</h3>
-          <p>Clear communication, honest reviews, and upfront pricing are at the heart of everything we do.</p>
+          <h3>{{ 'about.values.transparency.title' | translate }}</h3>
+          <p>{{ 'about.values.transparency.desc' | translate }}</p>
         </div>
       </div>
     </div>
@@ -92,34 +102,40 @@
   <!-- Services Section -->
   <section class="services">
     <div class="container">
-      <h2 class="section-title centered">Our Services</h2>
+      <h2 class="section-title centered">{{ 'about.services.title' | translate }}</h2>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
             </svg>
           </div>
-          <h3>Dog Walking</h3>
-          <p>Regular and on-demand walks to keep your dog healthy, active, and happy.</p>
+          <h3>{{ 'about.services.walking.title' | translate }}</h3>
+          <p>{{ 'about.services.walking.desc' | translate }}</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
           </div>
-          <h3>Pet Daycare</h3>
-          <p>A safe and fun environment where pets can play, rest, and receive attentive care during the day.</p>
+          <h3>{{ 'about.services.daycare.title' | translate }}</h3>
+          <p>{{ 'about.services.daycare.desc' | translate }}</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
           </div>
-          <h3>Pet Training</h3>
-          <p>Basic training and behavior support to help pets learn good habits and build confidence.</p>
+          <h3>{{ 'about.services.training.title' | translate }}</h3>
+          <p>{{ 'about.services.training.desc' | translate }}</p>
         </div>
       </div>
     </div>
@@ -129,20 +145,20 @@
   <section class="coverage">
     <div class="container">
       <div class="coverage-content">
-        <h2 class="section-title">Wide Coverage</h2>
-        <p class="section-description">Our trusted sitters are available in cities across the region, making it easy to find care wherever you are.</p>
+        <h2 class="section-title">{{ 'about.coverage.title' | translate }}</h2>
+        <p class="section-description">{{ 'about.coverage.desc' | translate }}</p>
         <div class="coverage-stats">
           <div class="stat">
             <div class="stat-number">20+</div>
-            <div class="stat-label">Cities</div>
+            <div class="stat-label">{{ 'about.coverage.stats.cities' | translate }}</div>
           </div>
           <div class="stat">
             <div class="stat-number">1000+</div>
-            <div class="stat-label">Pet Sitters</div>
+            <div class="stat-label">{{ 'about.coverage.stats.sitters' | translate }}</div>
           </div>
           <div class="stat">
             <div class="stat-number">5000+</div>
-            <div class="stat-label">Happy Pets</div>
+            <div class="stat-label">{{ 'about.coverage.stats.pets' | translate }}</div>
           </div>
         </div>
       </div>
@@ -152,8 +168,8 @@
   <!-- Partners Section -->
   <section class="partners">
     <div class="container">
-      <h2 class="section-title centered">Our Partners</h2>
-      <p class="section-description centered">We work with leading pet brands and organizations to provide the best products, services, and support for pets and their owners.</p>
+      <h2 class="section-title centered">{{ 'about.partners.title' | translate }}</h2>
+      <p class="section-description centered">{{ 'about.partners.desc' | translate }}</p>
       <div class="logos-grid">
         <div class="logo-item">
           <div class="logo-placeholder">PetCo</div>
@@ -177,9 +193,9 @@
   <!-- Call to Action -->
   <section class="cta">
     <div class="container">
-      <h2>Ready to Find the Perfect Pet Sitter?</h2>
-      <p>Join thousands of pet owners who trust us to care for their pets with love and professionalism.</p>
-      <a routerLink="/find-sitter" class="btn btn-cta">Get Started Today</a>
+      <h2>{{ 'about.cta.title' | translate }}</h2>
+      <p>{{ 'about.cta.desc' | translate }}</p>
+      <a routerLink="/find-sitter" class="btn btn-cta">{{ 'about.cta.btn' | translate }}</a>
     </div>
   </section>
 </div>

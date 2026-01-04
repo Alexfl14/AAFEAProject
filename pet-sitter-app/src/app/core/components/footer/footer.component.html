@@ -8,7 +8,7 @@
           <span class="logo-text">Pet Sitter</span>
         </div>
         <p class="footer-description">
-          Your trusted platform for finding reliable pet sitters in your area.
+          {{ 'footer.description' | translate }}
         </p>
       </div>
 
@@ -16,12 +16,7 @@
       <div class="footer-section social-section">
         <h3>{{ 'footer.followUs' | translate }}</h3>
         <div class="social-links">
-          <a
-            *ngFor="let link of socialLinks"
-            [href]="link.url"
-            [title]="link.name"
-            class="social-link"
-            target="_blank"
+          <a *ngFor="let link of socialLinks" [href]="link.url" [title]="link.name" class="social-link" target="_blank"
             rel="noopener noreferrer">
             <span class="social-icon">{{ link.icon }}</span>
           </a>

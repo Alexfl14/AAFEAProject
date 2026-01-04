@@ -32,26 +32,26 @@
     <div class="nav-controls">
       <!-- Dark Mode Toggle -->
       <button class="control-btn" (click)="toggleDarkMode()"
-        [attr.aria-label]="darkModeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
-        title="Toggle dark mode">
+        [attr.aria-label]="(darkModeService.isDarkMode() ? 'nav.toggleLight' : 'nav.toggleDark') | translate"
+        [title]="(darkModeService.isDarkMode() ? 'nav.toggleLight' : 'nav.toggleDark') | translate">
         <span class="icon">{{ darkModeService.isDarkMode() ? '☀️' : '🌙' }}</span>
       </button>
 
       <!-- Language Switcher -->
       <div class="language-switcher">
         <button class="control-btn lang-btn" [class.active]="currentLang === 'en'" (click)="switchLanguage('en')"
-          title="Switch to English">
+          [title]="'nav.switchEn' | translate">
           EN
         </button>
         <span class="separator">|</span>
         <button class="control-btn lang-btn" [class.active]="currentLang === 'ro'" (click)="switchLanguage('ro')"
-          title="Comută la Română">
+          [title]="'nav.switchRo' | translate">
           RO
         </button>
       </div>
 
       <!-- Mobile Menu Toggle -->
-      <button class="mobile-menu-btn" (click)="toggleMenu()" aria-label="Toggle menu">
+      <button class="mobile-menu-btn" (click)="toggleMenu()" [attr.aria-label]="'nav.toggleMenu' | translate">
         <span class="hamburger" [class.open]="isMenuOpen"></span>
       </button>
     </div>
@@ -94,7 +94,7 @@
         <!-- Dark Mode Toggle -->
         <button class="mobile-dark-mode-btn" (click)="toggleDarkMode()">
           <span class="icon">{{ darkModeService.isDarkMode() ? '☀️' : '🌙' }}</span>
-          <span>{{ darkModeService.isDarkMode() ? 'Light Mode' : 'Dark Mode' }}</span>
+          <span>{{ (darkModeService.isDarkMode() ? 'nav.lightMode' : 'nav.darkMode') | translate }}</span>
         </button>
       </div>
     </div>

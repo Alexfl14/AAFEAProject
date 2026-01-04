@@ -2,12 +2,13 @@ import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { JobService, Job } from '../../core/services/job.service';
 
 @Component({
   selector: 'app-find-sitter',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './find-sitter.component.html',
   styleUrl: './find-sitter.component.scss'
 })
@@ -59,7 +60,7 @@ export class FindSitterComponent implements OnInit {
   constructor(
     private jobService: JobService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // Load all jobs

@@ -3,15 +3,16 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">Find the perfect pal for your pet</h1>
-        <p class="hero-subtitle">Connect with trusted, verified pet sitters in your area. Your pet's happiness is just a click away.</p>
+        <h1 class="hero-title">{{ 'home.heroTitle' | translate }}</h1>
+        <p class="hero-subtitle">{{ 'home.heroSubtitle' | translate }}</p>
         <div class="hero-actions">
-          <a routerLink="/find-sitter" class="btn btn-primary">Get Started</a>
+          <a routerLink="/find-sitter" class="btn btn-primary">{{ 'home.getStarted' | translate }}</a>
         </div>
       </div>
       <div class="hero-image">
         <div class="image-placeholder">
-          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&h=600&fit=crop" alt="Happy pets with sitter" />
+          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&h=600&fit=crop"
+            alt="Happy pets with sitter" />
         </div>
       </div>
     </div>
@@ -20,34 +21,39 @@
   <!-- Features/Objective Section -->
   <section class="features">
     <div class="container">
-      <h2 class="section-title">Why Pet Owners Trust Us</h2>
+      <h2 class="section-title">{{ 'home.whyTrustUs' | translate }}</h2>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3>Verified Sitters</h3>
-          <p>All pet sitters are background-checked and verified for your peace of mind.</p>
+          <h3>{{ 'home.features.verified.title' | translate }}</h3>
+          <p>{{ 'home.features.verified.desc' | translate }}</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </div>
-          <h3>Happy Pets</h3>
-          <p>Our sitters provide loving care that keeps tails wagging and purrs going.</p>
+          <h3>{{ 'home.features.happy.title' | translate }}</h3>
+          <p>{{ 'home.features.happy.desc' | translate }}</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <h3>Secure Booking</h3>
-          <p>Safe and secure payment processing with booking protection guaranteed.</p>
+          <h3>{{ 'home.features.secure.title' | translate }}</h3>
+          <p>{{ 'home.features.secure.desc' | translate }}</p>
         </div>
       </div>
     </div>
@@ -56,7 +62,7 @@
   <!-- Testimonials/Logos Section -->
   <section class="trusted-by">
     <div class="container">
-      <h2 class="section-subtitle">Trusted by pet owners everywhere</h2>
+      <h2 class="section-subtitle">{{ 'home.trustedBy' | translate }}</h2>
       <div class="logos-grid">
         <div class="logo-item">
           <div class="logo-placeholder">PetCo</div>
@@ -80,9 +86,9 @@
   <!-- Call to Action -->
   <section class="cta">
     <div class="container">
-      <h2>Ready to find the perfect pet sitter?</h2>
-      <p>Join thousands of happy pet owners today!</p>
-      <a routerLink="/find-sitter" class="btn btn-cta">Get Started Now</a>
+      <h2>{{ 'home.cta.title' | translate }}</h2>
+      <p>{{ 'home.cta.subtitle' | translate }}</p>
+      <a routerLink="/find-sitter" class="btn btn-cta">{{ 'home.cta.btn' | translate }}</a>
     </div>
   </section>
 </div>
