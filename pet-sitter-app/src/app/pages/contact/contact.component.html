@@ -93,6 +93,10 @@
                     <div *ngIf="submitSuccess" class="success-message">
                         {{ 'contact.form.success' | translate }}
                     </div>
+
+                    <div *ngIf="submitError" class="error-message">
+                        {{ errorMessage }}
+                    </div>
                 </form>
             </div>
 

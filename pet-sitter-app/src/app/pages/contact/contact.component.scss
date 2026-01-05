@@ -152,6 +152,21 @@
     color: #2ecc71;
 }
 
+.error-message {
+    padding: 1rem;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.3s;
+}
+
+:host-context(.dark-mode) .error-message {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+}
+
 .info-card {
     height: max-content;
 
