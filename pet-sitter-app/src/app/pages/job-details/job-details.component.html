@@ -1,3 +1,79 @@
-<div class="container py-5">
-    <h1>{{ 'findSitter.jobDetails' | translate }}</h1>
+<div class="job-details-page" *ngIf="job">
+    <!-- Hero Section with Background Image (No Text) -->
+    <div class="job-hero" [style.backgroundImage]="'url(' + job.image + ')'">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container main-content">
+        <div class="job-layout">
+
+            <!-- Main Details Column -->
+            <div class="details-col">
+
+                <!-- Job Title & Badge Section (Moved here) -->
+                <div class="job-header-section">
+                    <div class="badge-wrapper">
+                        <span class="badge" [class]="job.serviceType">{{ 'job.' + job.serviceType | translate }}</span>
+                    </div>
+                    <h1>{{ job.title }}</h1>
+                </div>
+
+                <!-- Author Section -->
+                <div class="author-section">
+                    <div class="author-avatar">{{ job.author.charAt(0) }}</div>
+                    <div class="author-meta">
+                        <span class="sub-label">{{ 'job.by' | translate }}</span>
+                        <h2>{{ job.author }}</h2>
+                    </div>
+                    <div class="rating-badge">
+                        <span class="icon">★</span>
+                        <span>{{ job.rating }}</span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="description-section">
+                    <h3>{{ 'job.details' | translate }}</h3>
+                    <p>{{ job.description }}</p>
+                </div>
+
+                <!-- Location & Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="icon">📍</span>
+                        <div class="spec-info">
+                            <span class="label">{{ 'job.location' | translate }}</span>
+                            <span class="value">{{ job.location }}</span>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <span class="icon">🏷️</span>
+                        <div class="spec-info">
+                            <span class="label">Type</span>
+                            <span class="value">{{ 'job.' + job.serviceType | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar / Action Column -->
+            <div class="sidebar-col">
+                <div class="action-card">
+                    <div class="price-tag">
+                        <span class="amount">{{ job.price }} {{ job.currency }}</span>
+                        <span class="period">{{ 'job.perHour' | translate }}</span>
+                    </div>
+
+                    <button class="btn btn-apply">
+                        {{ 'job.contact' | translate }}
+                    </button>
+
+                    <p class="safety-text">
+                        <span class="icon">🛡️</span> {{ 'job.verifiedListing' | translate }}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

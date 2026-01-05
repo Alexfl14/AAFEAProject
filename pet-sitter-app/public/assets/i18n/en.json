@@ -66,12 +66,12 @@
         "adjustFilters": "Try adjusting your filters to see more results",
         "clearFilters": "Clear Filters",
         "perHour": "RON/hour",
-        "by": "by",
         "serviceTypes": {
-            "Daycare": "Daycare",
-            "Training": "Training",
-            "Walking": "Walking"
-        }
+            "walking": "Walking",
+            "grooming": "Grooming",
+            "boarding": "Boarding"
+        },
+        "by": "by"
     },
     "faq": {
         "title": "Frequently Asked Questions",
@@ -231,5 +231,16 @@
             "hours": "Business Hours",
             "hoursValue": "Mon - Fri: 9:00 AM - 6:00 PM"
         }
+    },
+    "job": {
+        "walking": "Walking",
+        "grooming": "Grooming",
+        "boarding": "Boarding",
+        "by": "by",
+        "perHour": "/hour",
+        "contact": "Contact Sitter",
+        "details": "Job Details",
+        "location": "Location",
+        "verifiedListing": "Verified Listing"
     }
 }

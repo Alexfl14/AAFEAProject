@@ -66,12 +66,12 @@
         "adjustFilters": "Încearcă să ajustezi filtrele pentru a vedea mai multe rezultate",
         "clearFilters": "Șterge Filtrele",
         "perHour": "RON/oră",
-        "by": "de",
         "serviceTypes": {
-            "Daycare": "Grădiniță",
-            "Training": "Dresaj",
-            "Walking": "Plimbare"
-        }
+            "walking": "Plimbare",
+            "grooming": "Îngrijire",
+            "boarding": "Cazare"
+        },
+        "by": "de"
     },
     "faq": {
         "title": "Întrebări Frecvente",
@@ -231,5 +231,16 @@
             "hours": "Program de Lucru",
             "hoursValue": "Luni - Vineri: 9:00 - 18:00"
         }
+    },
+    "job": {
+        "walking": "Plimbare",
+        "grooming": "Îngrijire",
+        "boarding": "Cazare",
+        "by": "de",
+        "perHour": "/oră",
+        "contact": "Contactează Sitter",
+        "details": "Detalii Job",
+        "location": "Locație",
+        "verifiedListing": "Anunț Verificat"
     }
 }
