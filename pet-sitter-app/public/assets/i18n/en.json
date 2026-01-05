@@ -57,6 +57,7 @@
         "location": "Location",
         "searchLocationPlaceholder": "Search by city...",
         "popularCities": "Popular Cities",
+        "priceRange": "Price Range",
         "result": "result",
         "results": "results",
         "found": "found",
@@ -70,7 +71,8 @@
         "serviceTypes": {
             "walking": "Walking",
             "grooming": "Grooming",
-            "boarding": "Boarding"
+            "boarding": "Boarding",
+            "sitMyPet": "Pet Sitting"
         },
         "by": "by"
     },
@@ -145,8 +147,8 @@
             "subtitle": "Trusted pet sitters providing safe, reliable, and personalized care for pets of all kinds."
         },
         "mission": {
-            "title": "Pet Care Mission",
-            "desc": "Our mission is to connect pet owners with caring, experienced sitters who treat every pet like family. We aim to make pet care stress-free, safe, and full of love."
+            "title": "Our Mission",
+            "desc": "Our mission is to create a trusted platform that connects pet owners with caring, experienced sitters. Whether you're looking for a professional pet sitter or need care for your own pet, we make it easy to find the perfect match. We aim to make pet care stress-free, safe, and full of love."
         },
         "story": {
             "title": "Our Story",
@@ -174,16 +176,20 @@
         "services": {
             "title": "Our Services",
             "walking": {
-                "title": "Dog Walking",
-                "desc": "Regular and on-demand walks to keep your dog healthy, active, and happy."
+                "title": "Pet Walking",
+                "desc": "Regular and on-demand walks to keep your pets healthy, active, and happy."
             },
-            "daycare": {
-                "title": "Pet Daycare",
-                "desc": "A safe and fun environment where pets can play, rest, and receive attentive care during the day."
+            "grooming": {
+                "title": "Pet Grooming",
+                "desc": "Professional grooming services to keep your pets clean, comfortable, and looking their best."
             },
-            "training": {
-                "title": "Pet Training",
-                "desc": "Basic training and behavior support to help pets learn good habits and build confidence."
+            "boarding": {
+                "title": "Pet Boarding",
+                "desc": "Safe and comfortable overnight stays where your pets receive attentive care while you're away."
+            },
+            "petSitting": {
+                "title": "Find Pet Sitters",
+                "desc": "Need someone to care for your pet? Post your pet sitting request and connect with trusted sitters in your area."
             }
         },
         "coverage": {
@@ -200,9 +206,9 @@
             "desc": "We work with leading pet brands and organizations to provide the best products, services, and support for pets and their owners."
         },
         "cta": {
-            "title": "Ready to Find the Perfect Pet Sitter?",
-            "desc": "Join thousands of pet owners who trust us to care for their pets with love and professionalism.",
-            "btn": "Get Started Today"
+            "title": "Ready to Get Started?",
+            "desc": "Whether you're looking for pet sitting services or need someone to care for your pet, join our community today!",
+            "btn": "Browse Services"
         }
     },
     "contact": {
@@ -271,8 +277,10 @@
         "walking": "Walking",
         "grooming": "Grooming",
         "boarding": "Boarding",
+        "sitMyPet": "Pet Sitting",
         "by": "by",
         "perHour": "/hour",
+        "bookNow": "Book Now",
         "contact": "Contact Sitter",
         "details": "Job Details",
         "location": "Location",
@@ -287,7 +295,8 @@
         "filters": {
             "allLocations": "All Locations",
             "allPetTypes": "All Pet Types",
-            "clear": "Clear Filters"
+            "clear": "Clear Filters",
+            "priceRange": "Price Range"
         },
         "petTypes": {
             "dog": "Dog",
@@ -310,6 +319,7 @@
         "loadingBreedInfo": "Fetching breed information...",
         "breedInfoError": "Unable to load breed information. Please try again later.",
         "price": "Price",
+        "bookNow": "Book Now",
         "contactOwner": "Contact Owner",
         "addToFavorites": "Save to Favorites",
         "removeFromFavorites": "Remove from Favorites",
@@ -330,5 +340,97 @@
             "energyLevel": "Energy Level",
             "credit": "Breed information provided by {{api}}"
         }
+    },
+    "booking": {
+        "title": "Book Service",
+        "subtitle": "Complete your booking in just a few steps",
+        "steps": {
+            "step1": "Service",
+            "step2": "Dates",
+            "step3": "Pet Details",
+            "step4": "Review"
+        },
+        "step1": {
+            "title": "Confirm Service",
+            "description": "Review the service you selected",
+            "sitterService": "Pet Sitting Service",
+            "petAdService": "Pet Care Opportunity",
+            "perDay": "per day",
+            "noService": "Please select a service from the listings first"
+        },
+        "step2": {
+            "title": "Select Dates",
+            "description": "Choose when you need the service",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "totalDays": "Total Days",
+            "totalPrice": "Estimated Total",
+            "specialRequests": "Special Requests",
+            "specialRequestsPlaceholder": "Any special instructions or requirements..."
+        },
+        "step3": {
+            "title": "Pet Information",
+            "description": "Tell us about your pet",
+            "skipForPetAd": "You're applying as a sitter - pet details not required",
+            "petName": "Pet Name",
+            "petNamePlaceholder": "e.g. Max",
+            "petType": "Pet Type",
+            "dog": "Dog",
+            "cat": "Cat",
+            "other": "Other",
+            "petBreed": "Breed",
+            "petBreedPlaceholder": "e.g. Golden Retriever",
+            "petAge": "Age (years)",
+            "petAgePlaceholder": "e.g. 3",
+            "petSpecialNeeds": "Special Needs",
+            "petSpecialNeedsPlaceholder": "Medical conditions, dietary requirements, etc..."
+        },
+        "step4": {
+            "title": "Contact & Review",
+            "description": "Confirm your contact details and review your booking",
+            "name": "Full Name",
+            "namePlaceholder": "John Doe",
+            "email": "Email",
+            "emailPlaceholder": "john@example.com",
+            "phone": "Phone Number",
+            "phonePlaceholder": "+40 123 456 789",
+            "address": "Address",
+            "addressPlaceholder": "Street, City, Country",
+            "reviewBooking": "Booking Summary",
+            "service": "Service",
+            "dates": "Dates",
+            "duration": "Duration",
+            "pet": "Pet",
+            "days": "days",
+            "total": "Total Price"
+        },
+        "navigation": {
+            "next": "Next Step",
+            "previous": "Previous",
+            "cancel": "Cancel",
+            "submit": "Confirm Booking",
+            "submitting": "Processing..."
+        },
+        "validation": {
+            "required": "This field is required",
+            "email": "Please enter a valid email",
+            "phone": "Phone must be at least 10 digits"
+        }
+    },
+    "bookingConfirmation": {
+        "title": "Booking Confirmed!",
+        "subtitle": "Your booking has been successfully submitted",
+        "bookingId": "Booking Reference",
+        "nextSteps": {
+            "title": "What Happens Next?",
+            "step1Title": "Confirmation Email",
+            "step1Desc": "You'll receive a confirmation email with all booking details within a few minutes.",
+            "step2Title": "Get in Touch",
+            "step2Desc": "The service provider will contact you shortly to confirm the details and arrange next steps.",
+            "step3Title": "Enjoy the Service",
+            "step3Desc": "Relax knowing your pet is in good hands with our trusted sitters!"
+        },
+        "backHome": "Back to Home",
+        "browseSitters": "Browse More Sitters"
     }
 }

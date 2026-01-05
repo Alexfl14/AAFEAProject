@@ -68,6 +68,12 @@
                                     <div class="icon">🏠</div>
                                     <span class="name">{{ 'job.boarding' | translate }}</span>
                                 </label>
+                                <label class="service-box"
+                                    [class.selected]="adForm.get('serviceType')?.value === 'sitMyPet'">
+                                    <input type="radio" formControlName="serviceType" value="sitMyPet">
+                                    <div class="icon">🐾</div>
+                                    <span class="name">{{ 'job.sitMyPet' | translate }}</span>
+                                </label>
                             </div>
                         </div>
 
@@ -93,6 +99,47 @@
                                 {{ 'contact.form.validation.messageLength' | translate }}
                             </div>
                         </div>
+
+                        <!-- Pet-specific fields when Pet Sitting is selected -->
+                        <div *ngIf="isPetSitting" class="pet-fields-section">
+                            <h3 class="section-title">Pet Information</h3>
+
+                            <div class="form-group mb-3">
+                                <label for="petName" class="form-label">Pet Name <span class="required">*</span></label>
+                                <input type="text" id="petName" formControlName="petName"
+                                    placeholder="e.g. Max, Luna..." class="form-control"
+                                    [class.is-invalid]="adForm.get('petName')?.touched && adForm.get('petName')?.invalid">
+                                <div class="error-feedback"
+                                    *ngIf="adForm.get('petName')?.touched && adForm.get('petName')?.invalid">
+                                    {{ 'contact.form.validation.required' | translate }}
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label class="form-label">Pet Type <span class="required">*</span></label>
+                                <div class="pet-type-options">
+                                    <label class="radio-option">
+                                        <input type="radio" formControlName="petType" value="dog">
+                                        <span>🐕 Dog</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" formControlName="petType" value="cat">
+                                        <span>🐱 Cat</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="breed" class="form-label">Breed <span class="required">*</span></label>
+                                <input type="text" id="breed" formControlName="breed"
+                                    placeholder="e.g. Golden Retriever, Siamese..." class="form-control"
+                                    [class.is-invalid]="adForm.get('breed')?.touched && adForm.get('breed')?.invalid">
+                                <div class="error-feedback"
+                                    *ngIf="adForm.get('breed')?.touched && adForm.get('breed')?.invalid">
+                                    {{ 'contact.form.validation.required' | translate }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Step 2: User Information -->
@@ -105,6 +152,19 @@
                             <div class="error-feedback"
                                 *ngIf="adForm.get('name')?.touched && adForm.get('name')?.invalid">
                                 {{ 'contact.form.validation.required' | translate }}
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">{{ 'contact.form.email' | translate }}</label>
+                            <input type="email" id="email" formControlName="email" placeholder="your.email@example.com"
+                                class="form-control"
+                                [class.is-invalid]="adForm.get('email')?.touched && adForm.get('email')?.invalid">
+                            <div class="error-feedback"
+                                *ngIf="adForm.get('email')?.touched && adForm.get('email')?.invalid">
+                                <span *ngIf="adForm.get('email')?.errors?.['required']">{{
+                                    'contact.form.validation.required' | translate }}</span>
+                                <span *ngIf="adForm.get('email')?.errors?.['email']">{{ 'contact.form.validation.email'
+                                    | translate }}</span>
                             </div>
                         </div>
                         <p class="hint-text">Owners like to know who is looking after their pets. Using your real name
@@ -128,13 +188,48 @@
                             <label for="price" class="form-label">{{ 'createAd.form.price' | translate }} ({{
                                 'createAd.form.currency' | translate }})</label>
                             <div class="price-input-wrapper">
-                                <input type="number" id="price" formControlName="price" class="form-control"
+                                <input type="number" id="price" formControlName="price" class="form-control" min="1"
                                     [class.is-invalid]="adForm.get('price')?.touched && adForm.get('price')?.invalid">
-                                <span class="currency-tag">/ hr</span>
                             </div>
                             <div class="error-feedback"
                                 *ngIf="adForm.get('price')?.touched && adForm.get('price')?.invalid">
                                 {{ 'contact.form.validation.required' | translate }}
+                            </div>
+                        </div>
+
+                        <!-- Date fields for Pet Sitting -->
+                        <div *ngIf="isPetSitting" class="date-fields-section">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="startDate" class="form-label">Start Date <span
+                                            class="required">*</span></label>
+                                    <input type="date" id="startDate" formControlName="startDate" [min]="todayDate"
+                                        class="form-control"
+                                        [class.is-invalid]="adForm.get('startDate')?.touched && adForm.get('startDate')?.invalid">
+                                    <div class="error-feedback"
+                                        *ngIf="adForm.get('startDate')?.touched && adForm.get('startDate')?.invalid">
+                                        {{ 'contact.form.validation.required' | translate }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="endDate" class="form-label">End Date <span
+                                            class="required">*</span></label>
+                                    <input type="date" id="endDate" formControlName="endDate"
+                                        [min]="adForm.get('startDate')?.value || todayDate" class="form-control"
+                                        [class.is-invalid]="adForm.get('endDate')?.touched && adForm.get('endDate')?.invalid">
+                                    <div class="error-feedback"
+                                        *ngIf="adForm.get('endDate')?.touched && adForm.get('endDate')?.invalid">
+                                        {{ 'contact.form.validation.required' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="specialNeeds" class="form-label">Special Needs (Optional)</label>
+                                <textarea id="specialNeeds" formControlName="specialNeeds" rows="3"
+                                    placeholder="Any medical conditions, dietary requirements, etc..."
+                                    class="form-control"></textarea>
                             </div>
                         </div>
                     </div>

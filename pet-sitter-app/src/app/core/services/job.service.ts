@@ -6,6 +6,7 @@ export interface Job {
   title: string;
   name: string;
   author: string;
+  email: string;
   description: string;
   location: string;
   price: number;
@@ -28,6 +29,7 @@ export class JobService {
       title: 'Plimbător de Câini Experimentat',
       name: 'Maria Popescu',
       author: 'Maria Popescu',
+      email: 'maria.popescu@example.com',
       description: 'Sunt o pasionată de animale și ofer servicii de plimbare pentru câini de toate taliile. Am experiență în dresaj de bază și mă asigur că patrupedul tău are parte de o plimbare sigură și distractivă.',
       location: 'București',
       price: 25,
@@ -43,6 +45,7 @@ export class JobService {
       title: 'Îngrijire Pisici la Domiciliu',
       name: 'Andrei Ionescu',
       author: 'Andrei Ionescu',
+      email: 'andrei.ionescu@example.com',
       description: 'Ofer cazare și îngrijire la domiciliul meu pentru pisici. Iubesc felinele și mă voi asigura că se simt ca acasă cât timp ești plecat, oferindu-le atenție, joacă și hrană la timp.',
       location: 'Cluj-Napoca',
       price: 30,
@@ -58,6 +61,7 @@ export class JobService {
       title: 'Grooming Profesional Complet',
       name: 'Elena Dumitrescu',
       author: 'Elena Dumitrescu',
+      email: 'elena.dumitrescu@example.com',
       description: 'Sunt groomer certificat și ofer servicii profesionale de tuns și aranjat pentru cățelul tău. Mă concentrez pe confortul animalului și folosesc produse blânde, de calitate superioară.',
       location: 'Timișoara',
       price: 150,
@@ -73,6 +77,7 @@ export class JobService {
       title: 'Plimbări de Seară',
       name: 'Bogdan Popa',
       author: 'Bogdan Popa',
+      email: 'bogdan.popa@example.com',
       description: 'Ofer servicii de plimbare pentru câini în timpul serii. Sunt calm și răbdător cu animalele anxioase.',
       location: 'Brașov',
       price: 20,
@@ -88,6 +93,7 @@ export class JobService {
       title: 'Cazare Confortabilă pentru Animale',
       name: 'Cristina Georgescu',
       author: 'Cristina Georgescu',
+      email: 'cristina.georgescu@example.com',
       description: 'Ofer cazare pentru căței și pisici într-un mediu familial, fără cuști. Curte mare disponibilă.',
       location: 'București',
       price: 60,
@@ -103,6 +109,7 @@ export class JobService {
       title: 'Spălat și Periat Profesional',
       name: 'Radu Mihail',
       author: 'Radu Mihail',
+      email: 'radu.mihail@example.com',
       description: 'Servicii de cosmetică canină și felină. Folosesc doar produse premium, non-alergenice.',
       location: 'Sibiu',
       price: 100,
@@ -118,6 +125,7 @@ export class JobService {
       title: 'Însoțitor pentru Câini Activi',
       name: 'Ioana Stancu',
       author: 'Ioana Stancu',
+      email: 'ioana.stancu@example.com',
       description: 'Dacă ai un câine cu multă energie, eu sunt persoana potrivită! Facem jogging și alergări în parc.',
       location: 'Cluj-Napoca',
       price: 35,
@@ -133,6 +141,7 @@ export class JobService {
       title: 'Pensionară Iubitoare de Animale',
       name: 'Anca Marin',
       author: 'Anca Marin',
+      email: 'anca.marin@example.com',
       description: 'Am timp liber și multă dragoste de oferit. Pot avea grijă de animalul tău pe parcursul zilei sau nopții.',
       location: 'Brașov',
       price: 45,
@@ -148,6 +157,7 @@ export class JobService {
       title: 'Tuns Igienic și Stilizat',
       name: 'David Niculescu',
       author: 'David Niculescu',
+      email: 'david.niculescu@example.com',
       description: 'Groomer cu experiență de 5 ani. Ofer tuns de întreținere sau pentru concursuri.',
       location: 'București',
       price: 120,
@@ -163,6 +173,7 @@ export class JobService {
       title: 'Plimbări de Weekend',
       name: 'Stefan Rădulescu',
       author: 'Stefan Rădulescu',
+      email: 'stefan.radulescu@example.com',
       description: 'Disponibil sâmbăta și duminica pentru plimbări lungi în natură. Iubesc toate rasele.',
       location: 'Timișoara',
       price: 25,

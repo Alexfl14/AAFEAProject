@@ -16,6 +16,10 @@ export class FindSitterComponent implements OnInit {
   // Filter signals
   selectedServiceType = signal<string>('all');
   searchLocation = signal<string>('');
+  minPrice = signal<number>(0);
+  maxPrice = signal<number>(200);
+  priceRangeMin = signal<number>(0);
+  priceRangeMax = signal<number>(200);
 
   // Available options for filters
   serviceTypes: string[] = [];
@@ -28,6 +32,8 @@ export class FindSitterComponent implements OnInit {
   filteredJobs = computed(() => {
     const serviceType = this.selectedServiceType();
     const location = this.searchLocation();
+    const min = this.minPrice();
+    const max = this.maxPrice();
 
     let jobs = this.allJobs();
 
@@ -43,6 +49,9 @@ export class FindSitterComponent implements OnInit {
         job.location.toLowerCase().includes(searchTerm)
       );
     }
+
+    // Filter by price range
+    jobs = jobs.filter(job => job.price >= min && job.price <= max);
 
     // Sort: Favorites first, then by id
     jobs = jobs.sort((a, b) => {
@@ -77,6 +86,23 @@ export class FindSitterComponent implements OnInit {
   loadJobs(): void {
     const jobs = this.jobService.getJobs();
     this.allJobs.set(jobs);
+    this.calculatePriceRange();
+  }
+
+  /**
+   * Calculate price range from all jobs
+   */
+  calculatePriceRange(): void {
+    const jobs = this.allJobs();
+    if (jobs.length > 0) {
+      const prices = jobs.map(job => job.price);
+      const min = Math.min(...prices);
+      const max = Math.max(...prices);
+      this.priceRangeMin.set(min);
+      this.priceRangeMax.set(max);
+      this.minPrice.set(min);
+      this.maxPrice.set(max);
+    }
   }
 
   /**
@@ -99,6 +125,30 @@ export class FindSitterComponent implements OnInit {
   clearFilters(): void {
     this.selectedServiceType.set('all');
     this.searchLocation.set('');
+    this.minPrice.set(this.priceRangeMin());
+    this.maxPrice.set(this.priceRangeMax());
+  }
+
+  /**
+   * Handle min price change
+   */
+  onMinPriceChange(value: number): void {
+    if (value > this.maxPrice()) {
+      this.minPrice.set(this.maxPrice());
+    } else {
+      this.minPrice.set(value);
+    }
+  }
+
+  /**
+   * Handle max price change
+   */
+  onMaxPriceChange(value: number): void {
+    if (value < this.minPrice()) {
+      this.maxPrice.set(this.minPrice());
+    } else {
+      this.maxPrice.set(value);
+    }
   }
 
   /**
@@ -144,6 +194,7 @@ export class FindSitterComponent implements OnInit {
     let count = 0;
     if (this.selectedServiceType() !== 'all') count++;
     if (this.searchLocation().trim() !== '') count++;
+    if (this.minPrice() !== this.priceRangeMin() || this.maxPrice() !== this.priceRangeMax()) count++;
     return count;
   }
 }

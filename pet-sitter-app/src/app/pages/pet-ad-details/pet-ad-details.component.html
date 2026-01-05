@@ -177,7 +177,11 @@
                         </div>
                     </div>
 
-                    <button class="btn-contact">
+                    <button class="btn-contact" (click)="bookNow()">
+                        {{ 'petAdDetails.bookNow' | translate }}
+                    </button>
+
+                    <button class="btn-contact" (click)="contactOwner()">
                         {{ 'petAdDetails.contactOwner' | translate }}
                     </button>
 

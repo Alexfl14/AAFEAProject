@@ -1,0 +1,58 @@
+<div class="confirmation-page">
+    <div class="container">
+        <div class="confirmation-card">
+            <!-- Success Icon -->
+            <div class="success-icon">
+                <span class="checkmark">✓</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="confirmation-title">{{ 'bookingConfirmation.title' | translate }}</h1>
+            <p class="confirmation-subtitle">{{ 'bookingConfirmation.subtitle' | translate }}</p>
+
+            <!-- Booking ID -->
+            <div class="booking-id-section">
+                <span class="label">{{ 'bookingConfirmation.bookingId' | translate }}</span>
+                <span class="booking-id">{{ bookingId }}</span>
+            </div>
+
+            <!-- What's Next Section -->
+            <div class="next-steps">
+                <h2>{{ 'bookingConfirmation.nextSteps.title' | translate }}</h2>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <span class="step-icon">📧</span>
+                        <div class="step-content">
+                            <h3>{{ 'bookingConfirmation.nextSteps.step1Title' | translate }}</h3>
+                            <p>{{ 'bookingConfirmation.nextSteps.step1Desc' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-icon">💬</span>
+                        <div class="step-content">
+                            <h3>{{ 'bookingConfirmation.nextSteps.step2Title' | translate }}</h3>
+                            <p>{{ 'bookingConfirmation.nextSteps.step2Desc' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-icon">🎉</span>
+                        <div class="step-content">
+                            <h3>{{ 'bookingConfirmation.nextSteps.step3Title' | translate }}</h3>
+                            <p>{{ 'bookingConfirmation.nextSteps.step3Desc' | translate }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" routerLink="/home">
+                    {{ 'bookingConfirmation.backHome' | translate }}
+                </button>
+                <button class="btn btn-secondary" routerLink="/find-sitter">
+                    {{ 'bookingConfirmation.browseSitters' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

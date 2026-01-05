@@ -43,6 +43,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/pet-ad-details/pet-ad-details.component').then(m => m.PetAdDetailsComponent)
   },
   {
+    path: 'booking',
+    loadComponent: () => import('./pages/booking/booking.component').then(m => m.BookingComponent)
+  },
+  {
+    path: 'booking-confirmation/:id',
+    loadComponent: () => import('./pages/booking-confirmation/booking-confirmation.component').then(m => m.BookingConfirmationComponent)
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

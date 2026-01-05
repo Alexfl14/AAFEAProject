@@ -57,6 +57,7 @@
         "location": "Locație",
         "searchLocationPlaceholder": "Caută după oraș...",
         "popularCities": "Orașe Populare",
+        "priceRange": "Interval Preț",
         "result": "rezultat",
         "results": "rezultate",
         "found": "găsite",
@@ -70,7 +71,8 @@
         "serviceTypes": {
             "walking": "Plimbare",
             "grooming": "Îngrijire",
-            "boarding": "Cazare"
+            "boarding": "Cazare",
+            "sitMyPet": "Îngrijire Animale"
         },
         "by": "de"
     },
@@ -146,7 +148,7 @@
         },
         "mission": {
             "title": "Misiunea Noastră",
-            "desc": "Misiunea noastră este să conectăm proprietarii de animale cu îngrijitori grijulii și experimentați care tratează fiecare animal ca pe un membru al familiei. Ne propunem să facem îngrijirea animalelor lipsită de stres, sigură și plină de iubire."
+            "desc": "Misiunea noastră este să creăm o platformă de încredere care conectează proprietarii de animale cu îngrijitori grijulii și experimentați. Fie că cauți un îngrijitor profesional sau ai nevoie de îngrijire pentru propriul animal, facem ușor să găsești perechea perfectă. Ne propunem să facem îngrijirea animalelor lipsită de stres, sigură și plină de iubire."
         },
         "story": {
             "title": "Povestea Noastră",
@@ -174,16 +176,20 @@
         "services": {
             "title": "Serviciile Noastre",
             "walking": {
-                "title": "Plimbare Câini",
-                "desc": "Plimbări regulate și la cerere pentru a-ți menține câinele sănătos, activ și fericit."
+                "title": "Plimbare Animale",
+                "desc": "Plimbări regulate și la cerere pentru a-ți menține animalele sănătoase, active și fericite."
             },
-            "daycare": {
-                "title": "Grădiniță pentru Animale",
-                "desc": "Un mediu sigur și distractiv unde animalele se pot juca, odihni și primi îngrijire atentă în timpul zilei."
+            "grooming": {
+                "title": "Toaletaj Animale",
+                "desc": "Servicii profesionale de toaletaj pentru a-ți menține animalele curate, confortabile și arătoase."
             },
-            "training": {
-                "title": "Dresaj",
-                "desc": "Antrenament de bază și suport comportamental pentru a ajuta animalele să învețe obiceiuri bune și să capete încredere."
+            "boarding": {
+                "title": "Cazare Animale",
+                "desc": "Cazare sigură și confortabilă peste noapte unde animalele primesc îngrijire atentă în timp ce ești plecat."
+            },
+            "petSitting": {
+                "title": "Găsește Îngrijitori",
+                "desc": "Ai nevoie de cineva să aibă grijă de animalul tău? Postează cererea ta și conectează-te cu îngrijitori de încredere din zona ta."
             }
         },
         "coverage": {
@@ -200,9 +206,9 @@
             "desc": "Lucrăm cu branduri și organizații de top pentru a oferi cele mai bune produse, servicii și suport pentru animale și proprietarii lor."
         },
         "cta": {
-            "title": "Ești gata să găsești îngrijitorul perfect?",
-            "desc": "Alătură-te miilor de proprietari care au încredere în noi pentru a avea grijă de animalele lor cu dragoste și profesionalism.",
-            "btn": "Începe Astăzi"
+            "title": "Ești Gata să Începi?",
+            "desc": "Fie că cauți servicii de îngrijire animale sau ai nevoie de cineva să aibă grijă de animalul tău, alătură-te comunității noastre astăzi!",
+            "btn": "Explorează Serviciile"
         }
     },
     "contact": {
@@ -271,8 +277,10 @@
         "walking": "Plimbare",
         "grooming": "Îngrijire",
         "boarding": "Cazare",
+        "sitMyPet": "Îngrijire Animale",
         "by": "de",
         "perHour": "/oră",
+        "bookNow": "Rezervă Acum",
         "contact": "Contactează Sitter",
         "details": "Detalii Job",
         "location": "Locație",
@@ -287,7 +295,8 @@
         "filters": {
             "allLocations": "Toate Locațiile",
             "allPetTypes": "Toate Tipurile de Animale",
-            "clear": "Șterge Filtrele"
+            "clear": "Șterge Filtrele",
+            "priceRange": "Interval Preț"
         },
         "petTypes": {
             "dog": "Câine",
@@ -310,6 +319,7 @@
         "loadingBreedInfo": "Se încarcă informații despre rasă...",
         "breedInfoError": "Nu s-au putut încărca informațiile despre rasă. Vă rugăm să încercați mai târziu.",
         "price": "Preț",
+        "bookNow": "Rezervă Acum",
         "contactOwner": "Contactează Proprietarul",
         "addToFavorites": "Salvează la Favorite",
         "removeFromFavorites": "Elimină din Favorite",
@@ -330,5 +340,21 @@
             "energyLevel": "Nivel de Energie",
             "credit": "Informațiile despre rasă furnizate de {{api}}"
         }
+    },
+    "bookingConfirmation": {
+        "title": "Rezervare Confirmată!",
+        "subtitle": "Rezervarea ta a fost trimisă cu succes",
+        "bookingId": "Referință Rezervare",
+        "nextSteps": {
+            "title": "Ce Se Întâmplă Acum?",
+            "step1Title": "Email de Confirmare",
+            "step1Desc": "Vei primi un email de confirmare cu toate detaliile rezervării în câteva minute.",
+            "step2Title": "Luăm Legătura",
+            "step2Desc": "Furnizorul de servicii te va contacta în scurt timp pentru a confirma detaliile și a aranja următorii pași.",
+            "step3Title": "Bucură-te de Serviciu",
+            "step3Desc": "Relaxează-te știind că animalul tău este pe mâini bune cu îngrijitorii noștri de încredere!"
+        },
+        "backHome": "Înapoi la Acasă",
+        "browseSitters": "Caută Mai Mulți Îngrijitori"
     }
 }

@@ -437,3 +437,72 @@
         opacity: 1;
     }
 }
+/* Pet Sitting Specific Styles */
+.pet-fields-section,
+.date-fields-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+
+    .section-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+    }
+}
+
+.pet-type-options {
+    display: flex;
+    gap: 1rem;
+
+    .radio-option {
+        flex: 1;
+        cursor: pointer;
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        transition: all 0.2s ease;
+        background: var(--bg-secondary);
+
+        input {
+            display: none;
+        }
+
+        span {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        &:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        input:checked + span {
+            color: #8b5cf6;
+        }
+    }
+
+    .radio-option:has(input:checked) {
+        border-color: #8b5cf6;
+        background: rgba(139, 92, 246, 0.05);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+    }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.required {
+    color: #ef4444;
+}

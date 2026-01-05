@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { PetAdService, PetAd } from '../../core/services/pet-ad.service';
 import { PetApiService, BreedInfo } from '../../core/services/pet-api.service';
@@ -14,6 +14,7 @@ import { PetApiService, BreedInfo } from '../../core/services/pet-api.service';
 })
 export class PetAdDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
   private petAdService = inject(PetAdService);
   private petApiService = inject(PetApiService);
 
@@ -61,5 +62,31 @@ export class PetAdDetailsComponent implements OnInit {
   getTraitStars(level: number | undefined): string {
     if (!level) return '';
     return '★'.repeat(level) + '☆'.repeat(5 - level);
+  }
+
+  contactOwner(): void {
+    if (!this.petAd) return;
+
+    const subject = encodeURIComponent(`Inquiry about ${this.petAd.petName} - ${this.petAd.breed}`);
+    const body = encodeURIComponent(
+      `Hello ${this.petAd.ownerName},\n\n` +
+      `I am interested in providing pet sitting services for ${this.petAd.petName}.\n\n` +
+      `Service dates: ${this.petAd.startDate} to ${this.petAd.endDate}\n` +
+      `Location: ${this.petAd.location}\n\n` +
+      `Please let me know if you would like to discuss further.\n\n` +
+      `Best regards`
+    );
+
+    window.location.href = `mailto:${this.petAd.ownerEmail}?subject=${subject}&body=${body}`;
+  }
+
+  bookNow(): void {
+    if (!this.petAd) return;
+    this.router.navigate(['/booking'], {
+      queryParams: {
+        serviceId: this.petAd.id,
+        type: 'petAd'
+      }
+    });
   }
 }

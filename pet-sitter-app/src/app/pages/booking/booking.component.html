@@ -1,0 +1,294 @@
+<div class="booking-page">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>{{ 'booking.title' | translate }}</h1>
+            <p>{{ 'booking.subtitle' | translate }}</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="step" *ngFor="let step of [1, 2, 3, 4]" [class.active]="currentStep === step"
+                [class.completed]="isStepCompleted(step)" (click)="isStepCompleted(step) ? goToStep(step) : null"
+                [class.clickable]="isStepCompleted(step)">
+                <div class="step-number">
+                    <span *ngIf="!isStepCompleted(step) || currentStep === step">{{ step }}</span>
+                    <span *ngIf="isStepCompleted(step) && currentStep !== step" class="check-icon">✓</span>
+                </div>
+                <div class="step-label">{{ getStepTitle(step) | translate }}</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="((currentStep - 1) / (totalSteps - 1)) * 100"></div>
+            </div>
+        </div>
+
+        <!-- Booking Form Card -->
+        <div class="booking-card">
+            <!-- Step 1: Service Confirmation -->
+            <div class="step-content" *ngIf="currentStep === 1">
+                <h2>{{ 'booking.step1.title' | translate }}</h2>
+                <p class="step-description">{{ 'booking.step1.description' | translate }}</p>
+
+                <div class="service-summary" *ngIf="bookingData.serviceId">
+                    <div class="service-icon">
+                        <span *ngIf="serviceType === 'sitter'">🐕</span>
+                        <span *ngIf="serviceType === 'petAd'">🏠</span>
+                    </div>
+                    <div class="service-details">
+                        <h3>{{ bookingData.serviceName }}</h3>
+                        <p class="service-type">
+                            {{ (serviceType === 'sitter' ? 'booking.step1.sitterService' :
+                            'booking.step1.petAdService') | translate }}
+                        </p>
+                        <div class="service-price">
+                            <span class="price">{{ bookingData.servicePrice }} RON</span>
+                            <span class="period">{{ 'booking.step1.perDay' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info" *ngIf="!bookingData.serviceId">
+                    <span class="icon">ℹ️</span>
+                    <p>{{ 'booking.step1.noService' | translate }}</p>
+                </div>
+            </div>
+
+            <!-- Step 2: Dates & Details -->
+            <div class="step-content" *ngIf="currentStep === 2">
+                <h2>{{ 'booking.step2.title' | translate }}</h2>
+                <p class="step-description">{{ 'booking.step2.description' | translate }}</p>
+
+                <form [formGroup]="datesForm" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startDate">{{ 'booking.step2.startDate' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="date" id="startDate" formControlName="startDate" [min]="getTodayDate()"
+                                class="form-control"
+                                [class.error]="datesForm.get('startDate')?.touched && datesForm.get('startDate')?.invalid">
+                            <div class="error-message"
+                                *ngIf="datesForm.get('startDate')?.touched && datesForm.get('startDate')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="endDate">{{ 'booking.step2.endDate' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="date" id="endDate" formControlName="endDate" [min]="getMinEndDate()"
+                                class="form-control"
+                                [class.error]="datesForm.get('endDate')?.touched && datesForm.get('endDate')?.invalid">
+                            <div class="error-message"
+                                *ngIf="datesForm.get('endDate')?.touched && datesForm.get('endDate')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-summary" *ngIf="bookingData.totalDays && bookingData.totalDays > 0">
+                        <div class="summary-item">
+                            <span class="label">{{ 'booking.step2.totalDays' | translate }}</span>
+                            <span class="value">{{ bookingData.totalDays }}</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span class="label">{{ 'booking.step2.totalPrice' | translate }}</span>
+                            <span class="value">{{ bookingData.totalPrice }} RON</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialRequests">{{ 'booking.step2.specialRequests' | translate }}</label>
+                        <textarea id="specialRequests" formControlName="specialRequests" rows="4" class="form-control"
+                            [placeholder]="'booking.step2.specialRequestsPlaceholder' | translate"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Pet Details -->
+            <div class="step-content" *ngIf="currentStep === 3">
+                <h2>{{ 'booking.step3.title' | translate }}</h2>
+                <p class="step-description">{{ 'booking.step3.description' | translate }}</p>
+
+                <div class="alert alert-info" *ngIf="serviceType === 'petAd'">
+                    <span class="icon">ℹ️</span>
+                    <p>{{ 'booking.step3.skipForPetAd' | translate }}</p>
+                </div>
+
+                <form [formGroup]="petDetailsForm" class="booking-form" *ngIf="serviceType === 'sitter'">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="petName">{{ 'booking.step3.petName' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="text" id="petName" formControlName="petName" class="form-control"
+                                [placeholder]="'booking.step3.petNamePlaceholder' | translate"
+                                [class.error]="petDetailsForm.get('petName')?.touched && petDetailsForm.get('petName')?.invalid">
+                            <div class="error-message"
+                                *ngIf="petDetailsForm.get('petName')?.touched && petDetailsForm.get('petName')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="petType">{{ 'booking.step3.petType' | translate }} <span
+                                    class="required">*</span></label>
+                            <select id="petType" formControlName="petType" class="form-control">
+                                <option value="dog">{{ 'booking.step3.dog' | translate }}</option>
+                                <option value="cat">{{ 'booking.step3.cat' | translate }}</option>
+                                <option value="other">{{ 'booking.step3.other' | translate }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="petBreed">{{ 'booking.step3.petBreed' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="text" id="petBreed" formControlName="petBreed" class="form-control"
+                                [placeholder]="'booking.step3.petBreedPlaceholder' | translate"
+                                [class.error]="petDetailsForm.get('petBreed')?.touched && petDetailsForm.get('petBreed')?.invalid">
+                            <div class="error-message"
+                                *ngIf="petDetailsForm.get('petBreed')?.touched && petDetailsForm.get('petBreed')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="petAge">{{ 'booking.step3.petAge' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="number" id="petAge" formControlName="petAge" class="form-control" min="0"
+                                [placeholder]="'booking.step3.petAgePlaceholder' | translate"
+                                [class.error]="petDetailsForm.get('petAge')?.touched && petDetailsForm.get('petAge')?.invalid">
+                            <div class="error-message"
+                                *ngIf="petDetailsForm.get('petAge')?.touched && petDetailsForm.get('petAge')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="petSpecialNeeds">{{ 'booking.step3.petSpecialNeeds' | translate }}</label>
+                        <textarea id="petSpecialNeeds" formControlName="petSpecialNeeds" rows="4" class="form-control"
+                            [placeholder]="'booking.step3.petSpecialNeedsPlaceholder' | translate"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: Contact & Review -->
+            <div class="step-content" *ngIf="currentStep === 4">
+                <h2>{{ 'booking.step4.title' | translate }}</h2>
+                <p class="step-description">{{ 'booking.step4.description' | translate }}</p>
+
+                <form [formGroup]="contactForm" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ownerName">{{ 'booking.step4.name' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="text" id="ownerName" formControlName="ownerName" class="form-control"
+                                [placeholder]="'booking.step4.namePlaceholder' | translate"
+                                [class.error]="contactForm.get('ownerName')?.touched && contactForm.get('ownerName')?.invalid">
+                            <div class="error-message"
+                                *ngIf="contactForm.get('ownerName')?.touched && contactForm.get('ownerName')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerEmail">{{ 'booking.step4.email' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="email" id="ownerEmail" formControlName="ownerEmail" class="form-control"
+                                [placeholder]="'booking.step4.emailPlaceholder' | translate"
+                                [class.error]="contactForm.get('ownerEmail')?.touched && contactForm.get('ownerEmail')?.invalid">
+                            <div class="error-message"
+                                *ngIf="contactForm.get('ownerEmail')?.touched && contactForm.get('ownerEmail')?.invalid">
+                                <span *ngIf="contactForm.get('ownerEmail')?.errors?.['required']">{{
+                                    'booking.validation.required' | translate }}</span>
+                                <span *ngIf="contactForm.get('ownerEmail')?.errors?.['email']">{{
+                                    'booking.validation.email' | translate }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ownerPhone">{{ 'booking.step4.phone' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="tel" id="ownerPhone" formControlName="ownerPhone" class="form-control"
+                                [placeholder]="'booking.step4.phonePlaceholder' | translate"
+                                [class.error]="contactForm.get('ownerPhone')?.touched && contactForm.get('ownerPhone')?.invalid">
+                            <div class="error-message"
+                                *ngIf="contactForm.get('ownerPhone')?.touched && contactForm.get('ownerPhone')?.invalid">
+                                {{ 'booking.validation.phone' | translate }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerAddress">{{ 'booking.step4.address' | translate }} <span
+                                    class="required">*</span></label>
+                            <input type="text" id="ownerAddress" formControlName="ownerAddress" class="form-control"
+                                [placeholder]="'booking.step4.addressPlaceholder' | translate"
+                                [class.error]="contactForm.get('ownerAddress')?.touched && contactForm.get('ownerAddress')?.invalid">
+                            <div class="error-message"
+                                *ngIf="contactForm.get('ownerAddress')?.touched && contactForm.get('ownerAddress')?.invalid">
+                                {{ 'booking.validation.required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Booking Summary -->
+                <div class="final-summary">
+                    <h3>{{ 'booking.step4.reviewBooking' | translate }}</h3>
+                    <div class="summary-card">
+                        <div class="summary-row">
+                            <span class="label">{{ 'booking.step4.service' | translate }}</span>
+                            <span class="value">{{ bookingData.serviceName }}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="label">{{ 'booking.step4.dates' | translate }}</span>
+                            <span class="value">{{ bookingData.startDate | date:'mediumDate' }} - {{
+                                bookingData.endDate | date:'mediumDate' }}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="label">{{ 'booking.step4.duration' | translate }}</span>
+                            <span class="value">{{ bookingData.totalDays }} {{ 'booking.step4.days' | translate
+                                }}</span>
+                        </div>
+                        <div class="summary-row" *ngIf="serviceType === 'sitter' && bookingData.petName">
+                            <span class="label">{{ 'booking.step4.pet' | translate }}</span>
+                            <span class="value">{{ bookingData.petName }} ({{ bookingData.petBreed }})</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span class="label">{{ 'booking.step4.total' | translate }}</span>
+                            <span class="value">{{ bookingData.totalPrice }} RON</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="step-navigation">
+                <button type="button" class="btn btn-secondary" (click)="previousStep()"
+                    *ngIf="currentStep > 1" [disabled]="isSubmitting">
+                    {{ 'booking.navigation.previous' | translate }}
+                </button>
+
+                <button type="button" class="btn btn-outline" (click)="cancelBooking()" [disabled]="isSubmitting">
+                    {{ 'booking.navigation.cancel' | translate }}
+                </button>
+
+                <button type="button" class="btn btn-primary" (click)="nextStep()"
+                    *ngIf="currentStep < totalSteps" [disabled]="!canProceedToNextStep() || isSubmitting">
+                    {{ 'booking.navigation.next' | translate }}
+                </button>
+
+                <button type="button" class="btn btn-primary btn-submit" (click)="submitBooking()"
+                    *ngIf="currentStep === totalSteps" [disabled]="!canProceedToNextStep() || isSubmitting">
+                    <span *ngIf="!isSubmitting">{{ 'booking.navigation.submit' | translate }}</span>
+                    <span *ngIf="isSubmitting">{{ 'booking.navigation.submitting' | translate }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { JobService } from '../../core/services/job.service';
+import { PetAdService } from '../../core/services/pet-ad.service';
 
 @Component({
   selector: 'app-create-ad',
@@ -15,6 +16,7 @@ import { JobService } from '../../core/services/job.service';
 export class CreateAdComponent {
   private fb = inject(FormBuilder);
   private jobService = inject(JobService);
+  private petAdService = inject(PetAdService);
   private router = inject(Router);
 
   currentStep = 1;
@@ -36,10 +38,26 @@ export class CreateAdComponent {
     title: ['', [Validators.required, Validators.minLength(5)]],
     description: ['', [Validators.required, Validators.minLength(10)]],
     name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     location: ['', Validators.required],
     price: [null as number | null, [Validators.required, Validators.min(1)]],
-    image: ['']
+    image: [''],
+    // Pet-specific fields for sitMyPet
+    petName: [''],
+    petType: ['dog'],
+    breed: [''],
+    startDate: [''],
+    endDate: [''],
+    specialNeeds: ['']
   });
+
+  get isPetSitting(): boolean {
+    return this.adForm.get('serviceType')?.value === 'sitMyPet';
+  }
+
+  get todayDate(): string {
+    return new Date().toISOString().split('T')[0];
+  }
 
   nextStep() {
     if (this.currentStep < 4) {
@@ -58,12 +76,32 @@ export class CreateAdComponent {
   }
 
   isStepValid(step: number): boolean {
+    const isPetSitting = this.isPetSitting;
+
     switch (step) {
       case 1:
+        if (isPetSitting) {
+          return !!(
+            this.adForm.get('serviceType')?.valid &&
+            this.adForm.get('title')?.valid &&
+            this.adForm.get('description')?.valid &&
+            this.adForm.get('petName')?.valid &&
+            this.adForm.get('petType')?.valid &&
+            this.adForm.get('breed')?.valid
+          );
+        }
         return !!(this.adForm.get('serviceType')?.valid && this.adForm.get('title')?.valid && this.adForm.get('description')?.valid);
       case 2:
-        return !!this.adForm.get('name')?.valid;
+        return !!(this.adForm.get('name')?.valid && this.adForm.get('email')?.valid);
       case 3:
+        if (isPetSitting) {
+          return !!(
+            this.adForm.get('location')?.valid &&
+            this.adForm.get('price')?.valid &&
+            this.adForm.get('startDate')?.valid &&
+            this.adForm.get('endDate')?.valid
+          );
+        }
         return !!(this.adForm.get('location')?.valid && this.adForm.get('price')?.valid);
       case 4:
         return true; // Image is optional, defaults to service type
@@ -73,18 +111,30 @@ export class CreateAdComponent {
   }
 
   markStepAsTouched(step: number) {
+    const isPetSitting = this.isPetSitting;
+
     switch (step) {
       case 1:
         this.adForm.get('serviceType')?.markAsTouched();
         this.adForm.get('title')?.markAsTouched();
         this.adForm.get('description')?.markAsTouched();
+        if (isPetSitting) {
+          this.adForm.get('petName')?.markAsTouched();
+          this.adForm.get('petType')?.markAsTouched();
+          this.adForm.get('breed')?.markAsTouched();
+        }
         break;
       case 2:
         this.adForm.get('name')?.markAsTouched();
+        this.adForm.get('email')?.markAsTouched();
         break;
       case 3:
         this.adForm.get('location')?.markAsTouched();
         this.adForm.get('price')?.markAsTouched();
+        if (isPetSitting) {
+          this.adForm.get('startDate')?.markAsTouched();
+          this.adForm.get('endDate')?.markAsTouched();
+        }
         break;
     }
   }
@@ -96,20 +146,49 @@ export class CreateAdComponent {
   onSubmit() {
     if (this.adForm.valid) {
       const formValue = this.adForm.value;
-      this.jobService.addJob({
-        title: formValue.title as string,
-        name: formValue.name as string,
-        description: formValue.description as string,
-        location: formValue.location as string,
-        price: formValue.price as number,
-        serviceType: formValue.serviceType as 'walking' | 'grooming' | 'boarding',
-        image: (formValue.image as string) || undefined
-      });
+
+      if (formValue.serviceType === 'sitMyPet') {
+        // Post to Pet Ad Service (sit-my-pet page)
+        this.petAdService.addPetAd({
+          petName: formValue.petName as string,
+          petType: formValue.petType as 'dog' | 'cat',
+          breed: formValue.breed as string,
+          ownerName: formValue.name as string,
+          ownerEmail: formValue.email as string,
+          title: formValue.title as string,
+          description: formValue.description as string,
+          location: formValue.location as string,
+          price: formValue.price as number,
+          currency: 'RON',
+          startDate: formValue.startDate as string,
+          endDate: formValue.endDate as string,
+          specialNeeds: formValue.specialNeeds as string || undefined,
+          image: (formValue.image as string) || 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=800'
+        });
+      } else {
+        // Post to Job Service (find-sitter page)
+        this.jobService.addJob({
+          title: formValue.title as string,
+          name: formValue.name as string,
+          email: formValue.email as string,
+          description: formValue.description as string,
+          location: formValue.location as string,
+          price: formValue.price as number,
+          serviceType: formValue.serviceType as 'walking' | 'grooming' | 'boarding',
+          image: (formValue.image as string) || undefined
+        });
+      }
+
       this.isSubmitted = true;
     }
   }
 
   goToFindSitter() {
-    this.router.navigate(['/find-sitter']);
+    const serviceType = this.adForm.get('serviceType')?.value;
+    if (serviceType === 'sitMyPet') {
+      this.router.navigate(['/sit-my-pet']);
+    } else {
+      this.router.navigate(['/find-sitter']);
+    }
   }
 }

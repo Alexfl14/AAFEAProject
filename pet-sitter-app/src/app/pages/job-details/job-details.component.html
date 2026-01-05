@@ -64,7 +64,11 @@
                         <span class="period">{{ 'job.perHour' | translate }}</span>
                     </div>
 
-                    <button class="btn btn-apply">
+                    <button class="btn btn-apply" (click)="bookNow()">
+                        {{ 'job.bookNow' | translate }}
+                    </button>
+
+                    <button class="btn btn-apply" (click)="contactSitter()">
                         {{ 'job.contact' | translate }}
                     </button>
 

@@ -56,6 +56,24 @@
           </div>
         </div>
 
+        <!-- Price Range Filter -->
+        <div class="filter-group">
+          <label class="filter-label">{{ 'findSitter.priceRange' | translate }}</label>
+          <div class="price-range-values">
+            <span>{{ minPrice() }} RON</span>
+            <span>-</span>
+            <span>{{ maxPrice() }} RON</span>
+          </div>
+          <div class="price-range-sliders">
+            <input type="range" [min]="priceRangeMin()" [max]="priceRangeMax()"
+                   [value]="minPrice()" (input)="onMinPriceChange(+$any($event.target).value)"
+                   class="range-slider range-min">
+            <input type="range" [min]="priceRangeMin()" [max]="priceRangeMax()"
+                   [value]="maxPrice()" (input)="onMaxPriceChange(+$any($event.target).value)"
+                   class="range-slider range-max">
+          </div>
+        </div>
+
         <!-- Results Summary -->
         <div class="results-summary">
           <p>

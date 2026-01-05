@@ -7,6 +7,7 @@ export interface PetAd {
   petType: 'dog' | 'cat';
   breed: string;
   ownerName: string;
+  ownerEmail: string;
   title: string;
   description: string;
   location: string;
@@ -33,6 +34,7 @@ export class PetAdService {
       petType: 'dog',
       breed: 'Golden Retriever',
       ownerName: 'Maria Ionescu',
+      ownerEmail: 'maria.ionescu@example.com',
       title: 'Need sitter for friendly Golden Retriever',
       description: 'Max is a 3-year-old Golden Retriever who loves playing fetch and going for walks. He\'s very friendly with other dogs and children. Looking for someone to take care of him while I\'m away on business.',
       location: 'Bucharest, Romania',
@@ -50,6 +52,7 @@ export class PetAdService {
       petType: 'cat',
       breed: 'Siamese',
       ownerName: 'Andrei Popescu',
+      ownerEmail: 'andrei.popescu@example.com',
       title: 'Looking for cat sitter - Siamese cat',
       description: 'Luna is a beautiful 2-year-old Siamese cat. She\'s very affectionate and loves attention. She\'s indoor only and needs someone to visit once a day to feed and play with her.',
       location: 'Cluj-Napoca, Romania',
@@ -66,6 +69,7 @@ export class PetAdService {
       petType: 'dog',
       breed: 'German Shepherd',
       ownerName: 'Elena Dumitrescu',
+      ownerEmail: 'elena.dumitrescu@example.com',
       title: 'German Shepherd needs experienced sitter',
       description: 'Rex is a well-trained 5-year-old German Shepherd. He needs an experienced sitter who can handle large dogs. He\'s protective but very loyal and well-behaved.',
       location: 'Brasov, Romania',
@@ -83,6 +87,7 @@ export class PetAdService {
       petType: 'cat',
       breed: 'Persian',
       ownerName: 'Cristina Marin',
+      ownerEmail: 'cristina.marin@example.com',
       title: 'Persian cat needs daily grooming',
       description: 'Mimi is a fluffy 4-year-old Persian cat who requires daily grooming. She\'s very calm and loves to cuddle. Looking for someone who can spend quality time with her.',
       location: 'Timisoara, Romania',
@@ -100,6 +105,7 @@ export class PetAdService {
       petType: 'dog',
       breed: 'Labrador Retriever',
       ownerName: 'Mihai Stanciu',
+      ownerEmail: 'mihai.stanciu@example.com',
       title: 'Energetic Labrador needs active sitter',
       description: 'Buddy is a 2-year-old Labrador full of energy! He needs someone who can keep up with his playful nature and take him on long walks or to the park.',
       location: 'Iasi, Romania',
@@ -117,6 +123,7 @@ export class PetAdService {
       petType: 'cat',
       breed: 'Maine Coon',
       ownerName: 'Alexandra Popa',
+      ownerEmail: 'alexandra.popa@example.com',
       title: 'Large Maine Coon needs experienced cat lover',
       description: 'Whiskers is a gentle giant! He\'s a 6-year-old Maine Coon who loves to chat and follow you around. He\'s very friendly but needs someone familiar with large cat breeds.',
       location: 'Constanta, Romania',
