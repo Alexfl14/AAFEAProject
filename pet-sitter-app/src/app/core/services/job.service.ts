@@ -21,7 +21,8 @@ export interface Job {
   providedIn: 'root'
 })
 export class JobService {
-  private jobs: Job[] = [
+  private userJobs: Job[] = [];
+  private readonly initialJobs: Job[] = [
     {
       id: 1,
       title: 'Plimbător de Câini Experimentat',
@@ -175,44 +176,81 @@ export class JobService {
   ];
 
   constructor() {
+    this.loadUserJobs();
     this.loadFavorites();
   }
 
   getJobs(): Job[] {
-    return this.jobs;
+    return [...this.userJobs, ...this.initialJobs];
   }
 
   getJobById(id: number): Observable<Job | undefined> {
-    const job = this.jobs.find(j => j.id === id);
-    return of(job || this.jobs[0]);
+    const job = [...this.userJobs, ...this.initialJobs].find(j => j.id === id);
+    return of(job || this.initialJobs[0]);
+  }
+
+  addJob(jobData: Omit<Job, 'id' | 'rating' | 'reviewsCount' | 'isFavorite' | 'currency' | 'author' | 'image'> & { image?: string }): void {
+    const newJob: Job = {
+      ...jobData,
+      id: Date.now(),
+      author: jobData.name,
+      currency: 'RON',
+      rating: 5.0,
+      reviewsCount: 0,
+      isFavorite: false,
+      image: jobData.image || this.getDefaultImage(jobData.serviceType)
+    };
+    this.userJobs.unshift(newJob);
+    this.saveUserJobs();
   }
 
   getServiceTypes(): string[] {
-    return [...new Set(this.jobs.map(job => job.serviceType))];
+    return [...new Set(this.getJobs().map(job => job.serviceType))];
   }
 
   getLocations(): string[] {
-    return [...new Set(this.jobs.map(job => job.location))];
+    return [...new Set(this.getJobs().map(job => job.location))];
   }
 
   toggleFavorite(jobId: number): void {
-    const job = this.jobs.find(j => j.id === jobId);
+    const job = [...this.userJobs, ...this.initialJobs].find(j => j.id === jobId);
     if (job) {
       job.isFavorite = !job.isFavorite;
       this.saveFavorites();
     }
   }
 
+  private getDefaultImage(type: string): string {
+    const images = {
+      walking: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=800',
+      boarding: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800',
+      grooming: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800'
+    };
+    return images[type as keyof typeof images] || images.walking;
+  }
+
+  private saveUserJobs(): void {
+    localStorage.setItem('userJobs', JSON.stringify(this.userJobs));
+  }
+
+  private loadUserJobs(): void {
+    const jobsStr = localStorage.getItem('userJobs');
+    if (jobsStr) {
+      this.userJobs = JSON.parse(jobsStr);
+    }
+  }
+
   private saveFavorites(): void {
-    const favorites = this.jobs.filter(j => j.isFavorite).map(j => j.id);
-    localStorage.setItem('favoriteJobs', JSON.stringify(favorites));
+    const userFavs = this.userJobs.filter(j => j.isFavorite).map(j => j.id);
+    const initialFavs = this.initialJobs.filter(j => j.isFavorite).map(j => j.id);
+    localStorage.setItem('favoriteJobs', JSON.stringify([...userFavs, ...initialFavs]));
   }
 
   private loadFavorites(): void {
     const favoritesStr = localStorage.getItem('favoriteJobs');
     if (favoritesStr) {
       const favorites = JSON.parse(favoritesStr) as number[];
-      this.jobs.forEach(job => {
+      [...this.userJobs, ...this.initialJobs].forEach(job => {
         job.isFavorite = favorites.includes(job.id);
       });
     }

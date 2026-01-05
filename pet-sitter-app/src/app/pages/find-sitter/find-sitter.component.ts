@@ -48,7 +48,7 @@ export class FindSitterComponent implements OnInit {
     jobs = jobs.sort((a, b) => {
       if (a.isFavorite && !b.isFavorite) return -1;
       if (!a.isFavorite && b.isFavorite) return 1;
-      return a.id - b.id;
+      return b.id - a.id;
     });
 
     return jobs;

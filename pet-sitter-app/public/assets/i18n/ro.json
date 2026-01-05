@@ -232,6 +232,40 @@
             "hoursValue": "Luni - Vineri: 9:00 - 18:00"
         }
     },
+    "createAd": {
+        "title": "Creează Anunțul Tău",
+        "subtitle": "Împarte serviciile tale de îngrijire cu comunitatea noastră",
+        "steps": {
+            "step1": "Detalii Serviciu",
+            "step2": "Informațiile Tale",
+            "step3": "Locație și Preț",
+            "step4": "Fotografii și Media"
+        },
+        "form": {
+            "serviceType": "Ce serviciu oferi?",
+            "title": "Titlu Anunț",
+            "titlePlaceholder": "ex: Plimbător de Câini Experimentat",
+            "description": "Descriere",
+            "descriptionPlaceholder": "Spune-le oamenilor despre experiența ta și serviciile pe care le oferi...",
+            "name": "Numele Tău",
+            "location": "Oraș",
+            "price": "Preț pe oră",
+            "currency": "RON",
+            "photosTitle": "Alege o Fotografie",
+            "photosSubtitle": "Selectează din galeria noastră sau introdu un link propriu",
+            "customUrl": "Sau lipește un URL de imagine"
+        },
+        "buttons": {
+            "next": "Pasul Următor",
+            "previous": "Înapoi",
+            "submit": "Creează Anunț",
+            "finish": "Vezi Anunțul"
+        },
+        "success": {
+            "title": "Anunț Creat cu Succes!",
+            "message": "Anunțul tău este acum vizibil pentru proprietarii de animale din zona ta."
+        }
+    },
     "job": {
         "walking": "Plimbare",
         "grooming": "Îngrijire",

@@ -232,6 +232,40 @@
             "hoursValue": "Mon - Fri: 9:00 AM - 6:00 PM"
         }
     },
+    "createAd": {
+        "title": "Create Your Ad",
+        "subtitle": "Share your pet care service with our community",
+        "steps": {
+            "step1": "Service Details",
+            "step2": "Your Information",
+            "step3": "Location & Price",
+            "step4": "Photos & Media"
+        },
+        "form": {
+            "serviceType": "What service do you provide?",
+            "title": "Ad Title",
+            "titlePlaceholder": "e.g. Experienced Dog Walker",
+            "description": "Description",
+            "descriptionPlaceholder": "Tell people about your experience and the services you offer...",
+            "name": "Your Name",
+            "location": "City",
+            "price": "Price per hour",
+            "currency": "RON",
+            "photosTitle": "Choose a Photo",
+            "photosSubtitle": "Select from our gallery or provide your own link",
+            "customUrl": "Or paste an image URL"
+        },
+        "buttons": {
+            "next": "Next Step",
+            "previous": "Previous",
+            "submit": "Create Ad",
+            "finish": "View My Ad"
+        },
+        "success": {
+            "title": "Ad Created Successfully!",
+            "message": "Your ad is now live and can be found by pet owners in your area."
+        }
+    },
     "job": {
         "walking": "Walking",
         "grooming": "Grooming",

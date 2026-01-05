@@ -1,3 +1,199 @@
-<div class="container py-5">
-    <h1>{{ 'nav.createAd' | translate }}</h1>
+<div class="create-ad-page">
+    <div class="page-header">
+        <div class="container">
+            <h1>{{ 'createAd.title' | translate }}</h1>
+            <p>{{ 'createAd.subtitle' | translate }}</p>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <div class="wizard-container">
+
+            <!-- Progress Bar (Hidden on success) -->
+            <div class="wizard-progress" *ngIf="!isSubmitted">
+                <div class="progress-step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+                    <div class="circle">
+                        <span *ngIf="currentStep <= 1">1</span>
+                        <span *ngIf="currentStep > 1">✓</span>
+                    </div>
+                    <span>{{ 'createAd.steps.step1' | translate }}</span>
+                </div>
+                <div class="progress-line" [class.active]="currentStep >= 2"></div>
+                <div class="progress-step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+                    <div class="circle">
+                        <span *ngIf="currentStep <= 2">2</span>
+                        <span *ngIf="currentStep > 2">✓</span>
+                    </div>
+                    <span>{{ 'createAd.steps.step2' | translate }}</span>
+                </div>
+                <div class="progress-line" [class.active]="currentStep >= 3"></div>
+                <div class="progress-step" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+                    <div class="circle">
+                        <span *ngIf="currentStep <= 3">3</span>
+                        <span *ngIf="currentStep > 3">✓</span>
+                    </div>
+                    <span>{{ 'createAd.steps.step3' | translate }}</span>
+                </div>
+                <div class="progress-line" [class.active]="currentStep >= 4"></div>
+                <div class="progress-step" [class.active]="currentStep >= 4">
+                    <div class="circle">4</div>
+                    <span>{{ 'createAd.steps.step4' | translate }}</span>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="wizard-card" [class.success-bg]="isSubmitted">
+                <form [formGroup]="adForm" (ngSubmit)="onSubmit()">
+
+                    <!-- Step 1: Service Details -->
+                    <div *ngIf="currentStep === 1 && !isSubmitted" class="step-content animate-fade">
+                        <div class="form-group mb-4">
+                            <label class="form-label">{{ 'createAd.form.serviceType' | translate }}</label>
+                            <div class="service-type-grid">
+                                <label class="service-box"
+                                    [class.selected]="adForm.get('serviceType')?.value === 'walking'">
+                                    <input type="radio" formControlName="serviceType" value="walking">
+                                    <div class="icon">🐕</div>
+                                    <span class="name">{{ 'job.walking' | translate }}</span>
+                                </label>
+                                <label class="service-box"
+                                    [class.selected]="adForm.get('serviceType')?.value === 'grooming'">
+                                    <input type="radio" formControlName="serviceType" value="grooming">
+                                    <div class="icon">✂️</div>
+                                    <span class="name">{{ 'job.grooming' | translate }}</span>
+                                </label>
+                                <label class="service-box"
+                                    [class.selected]="adForm.get('serviceType')?.value === 'boarding'">
+                                    <input type="radio" formControlName="serviceType" value="boarding">
+                                    <div class="icon">🏠</div>
+                                    <span class="name">{{ 'job.boarding' | translate }}</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="title" class="form-label">{{ 'createAd.form.title' | translate }}</label>
+                            <input type="text" id="title" formControlName="title"
+                                [placeholder]="'createAd.form.titlePlaceholder' | translate" class="form-control"
+                                [class.is-invalid]="adForm.get('title')?.touched && adForm.get('title')?.invalid">
+                            <div class="error-feedback"
+                                *ngIf="adForm.get('title')?.touched && adForm.get('title')?.invalid">
+                                {{ 'contact.form.validation.required' | translate }} (min 5 chars)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="form-label">{{ 'createAd.form.description' | translate
+                                }}</label>
+                            <textarea id="description" formControlName="description" rows="4"
+                                [placeholder]="'createAd.form.descriptionPlaceholder' | translate" class="form-control"
+                                [class.is-invalid]="adForm.get('description')?.touched && adForm.get('description')?.invalid"></textarea>
+                            <div class="error-feedback"
+                                *ngIf="adForm.get('description')?.touched && adForm.get('description')?.invalid">
+                                {{ 'contact.form.validation.messageLength' | translate }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: User Information -->
+                    <div *ngIf="currentStep === 2 && !isSubmitted" class="step-content animate-fade">
+                        <div class="form-group mb-3">
+                            <label for="name" class="form-label">{{ 'createAd.form.name' | translate }}</label>
+                            <input type="text" id="name" formControlName="name" placeholder="Full Name"
+                                class="form-control"
+                                [class.is-invalid]="adForm.get('name')?.touched && adForm.get('name')?.invalid">
+                            <div class="error-feedback"
+                                *ngIf="adForm.get('name')?.touched && adForm.get('name')?.invalid">
+                                {{ 'contact.form.validation.required' | translate }}
+                            </div>
+                        </div>
+                        <p class="hint-text">Owners like to know who is looking after their pets. Using your real name
+                            builds trust.</p>
+                    </div>
+
+                    <!-- Step 3: Location & Price -->
+                    <div *ngIf="currentStep === 3 && !isSubmitted" class="step-content animate-fade">
+                        <div class="form-group mb-3">
+                            <label for="location" class="form-label">{{ 'createAd.form.location' | translate }}</label>
+                            <input type="text" id="location" formControlName="location"
+                                placeholder="e.g. Bucharest, Brasov..." class="form-control"
+                                [class.is-invalid]="adForm.get('location')?.touched && adForm.get('location')?.invalid">
+                            <div class="error-feedback"
+                                *ngIf="adForm.get('location')?.touched && adForm.get('location')?.invalid">
+                                {{ 'contact.form.validation.required' | translate }}
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="price" class="form-label">{{ 'createAd.form.price' | translate }} ({{
+                                'createAd.form.currency' | translate }})</label>
+                            <div class="price-input-wrapper">
+                                <input type="number" id="price" formControlName="price" class="form-control"
+                                    [class.is-invalid]="adForm.get('price')?.touched && adForm.get('price')?.invalid">
+                                <span class="currency-tag">/ hr</span>
+                            </div>
+                            <div class="error-feedback"
+                                *ngIf="adForm.get('price')?.touched && adForm.get('price')?.invalid">
+                                {{ 'contact.form.validation.required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Photos -->
+                    <div *ngIf="currentStep === 4 && !isSubmitted" class="step-content animate-fade">
+                        <h3 class="step-title">{{ 'createAd.form.photosTitle' | translate }}</h3>
+                        <p class="step-subtitle">{{ 'createAd.form.photosSubtitle' | translate }}</p>
+
+                        <div class="gallery-grid mb-4">
+                            <div class="gallery-item" *ngFor="let img of galleryImages"
+                                [class.selected]="adForm.get('image')?.value === img" (click)="selectGalleryImage(img)">
+                                <img [src]="img" alt="Gallery Pet">
+                                <div class="check-overlay" *ngIf="adForm.get('image')?.value === img">
+                                    <span class="icon">✓</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customUrl" class="form-label">{{ 'createAd.form.customUrl' | translate
+                                }}</label>
+                            <input type="text" id="customUrl" formControlName="image"
+                                placeholder="https://images.unsplash.com/..." class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Success Step -->
+                    <div *ngIf="isSubmitted" class="success-content animate-scale">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h2>{{ 'createAd.success.title' | translate }}</h2>
+                        <p>{{ 'createAd.success.message' | translate }}</p>
+                        <button type="button" class="btn btn-primary btn-lg mt-4" (click)="goToFindSitter()">
+                            {{ 'createAd.buttons.finish' | translate }}
+                        </button>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="wizard-footer" *ngIf="!isSubmitted">
+                        <button type="button" class="btn btn-outline" *ngIf="currentStep > 1" (click)="prevStep()">
+                            {{ 'createAd.buttons.previous' | translate }}
+                        </button>
+                        <div class="spacer"></div>
+                        <button type="button" class="btn btn-primary btn-next" *ngIf="currentStep < 4"
+                            (click)="nextStep()">
+                            {{ 'createAd.buttons.next' | translate }}
+                            <span class="arrow">→</span>
+                        </button>
+                        <button type="submit" class="btn btn-success btn-submit" *ngIf="currentStep === 4">
+                            {{ 'createAd.buttons.submit' | translate }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
