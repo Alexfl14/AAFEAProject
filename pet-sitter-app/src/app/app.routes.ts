@@ -35,6 +35,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/faq/faq.component').then(m => m.FaqComponent)
   },
   {
+    path: 'sit-my-pet',
+    loadComponent: () => import('./pages/sit-my-pet/sit-my-pet.component').then(m => m.SitMyPetComponent)
+  },
+  {
+    path: 'pet-ad-details/:id',
+    loadComponent: () => import('./pages/pet-ad-details/pet-ad-details.component').then(m => m.PetAdDetailsComponent)
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

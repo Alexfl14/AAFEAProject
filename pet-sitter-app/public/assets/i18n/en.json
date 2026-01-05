@@ -3,6 +3,7 @@
         "home": "Home",
         "findSitter": "Find a Sitter",
         "createAd": "Create Ad",
+        "sitMyPet": "Sit My Pet",
         "about": "About Us",
         "contact": "Contact",
         "faq": "FAQ",
@@ -276,5 +277,58 @@
         "details": "Job Details",
         "location": "Location",
         "verifiedListing": "Verified Listing"
+    },
+    "sitMyPet": {
+        "title": "Sit My Pet",
+        "subtitle": "Find trusted pet sitters for your furry friends",
+        "searchPlaceholder": "Search by pet name, breed, or location...",
+        "perDay": "per day",
+        "resultsCount": "{{count}} pet sitting opportunities available",
+        "filters": {
+            "allLocations": "All Locations",
+            "allPetTypes": "All Pet Types",
+            "clear": "Clear Filters"
+        },
+        "petTypes": {
+            "dog": "Dog",
+            "cat": "Cat"
+        },
+        "noResults": {
+            "title": "No Pet Sitting Opportunities Found",
+            "message": "Try adjusting your search or filters to see more results",
+            "clearFilters": "Clear All Filters"
+        }
+    },
+    "petAdDetails": {
+        "postedBy": "Posted by",
+        "description": "About This Pet",
+        "specialNeeds": "Special Care Requirements",
+        "location": "Location",
+        "dates": "Service Dates",
+        "meetPet": "Meet {{name}}",
+        "loading": "Loading...",
+        "loadingBreedInfo": "Fetching breed information...",
+        "breedInfoError": "Unable to load breed information. Please try again later.",
+        "price": "Price",
+        "contactOwner": "Contact Owner",
+        "addToFavorites": "Save to Favorites",
+        "removeFromFavorites": "Remove from Favorites",
+        "verifiedOwner": "Verified Owner",
+        "backToListings": "Back to Listings",
+        "breedInfo": {
+            "title": "About the {{breed}} Breed",
+            "temperament": "Temperament",
+            "description": "Breed Description",
+            "lifeSpan": "Life Span",
+            "weight": "Weight",
+            "height": "Height",
+            "origin": "Origin",
+            "traits": "Personality Traits",
+            "affectionLevel": "Affection Level",
+            "childFriendly": "Child Friendly",
+            "dogFriendly": "Dog Friendly",
+            "energyLevel": "Energy Level",
+            "credit": "Breed information provided by {{api}}"
+        }
     }
 }

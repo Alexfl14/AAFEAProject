@@ -1,0 +1,202 @@
+<div class="pet-ad-details-page" *ngIf="petAd">
+    <!-- Hero Section with Pet Image -->
+    <div class="hero-section" [style.background-image]="'url(' + petAd.image + ')'">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container main-content">
+        <div class="content-grid">
+            <!-- Left Column - Main Content -->
+            <div class="main-column">
+                <!-- Header Section -->
+                <div class="header-section">
+                    <div class="pet-type-badge">
+                        {{ getPetTypeIcon(petAd.petType) }} {{ 'sitMyPet.petTypes.' + petAd.petType | translate }}
+                    </div>
+                    <h1 class="pet-name">{{ petAd.petName }}</h1>
+                    <p class="breed">{{ petAd.breed }}</p>
+                </div>
+
+                <!-- Title -->
+                <h2 class="ad-title">{{ petAd.title }}</h2>
+
+                <!-- Owner Section -->
+                <div class="owner-section">
+                    <div class="owner-avatar">{{ petAd.ownerName.charAt(0) }}</div>
+                    <div class="owner-details">
+                        <span class="label">{{ 'petAdDetails.postedBy' | translate }}</span>
+                        <span class="owner-name">{{ petAd.ownerName }}</span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="description-section">
+                    <h3>{{ 'petAdDetails.description' | translate }}</h3>
+                    <p>{{ petAd.description }}</p>
+                </div>
+
+                <!-- Special Needs -->
+                <div class="special-needs-section" *ngIf="petAd.specialNeeds">
+                    <h3>{{ 'petAdDetails.specialNeeds' | translate }}</h3>
+                    <div class="special-needs-box">
+                        <span class="icon">⚠️</span>
+                        <p>{{ petAd.specialNeeds }}</p>
+                    </div>
+                </div>
+
+                <!-- Details Grid -->
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <span class="icon">📍</span>
+                        <div class="detail-info">
+                            <span class="label">{{ 'petAdDetails.location' | translate }}</span>
+                            <span class="value">{{ petAd.location }}</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <span class="icon">📅</span>
+                        <div class="detail-info">
+                            <span class="label">{{ 'petAdDetails.dates' | translate }}</span>
+                            <span class="value">{{ petAd.startDate | date:'mediumDate' }} - {{ petAd.endDate |
+                                date:'mediumDate' }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meet Pet Button -->
+                <div class="meet-pet-section">
+                    <button (click)="meetPet()" class="btn-meet-pet" [disabled]="isLoadingBreedInfo">
+                        <span class="icon">{{ getPetTypeIcon(petAd.petType) }}</span>
+                        <span>{{ isLoadingBreedInfo ? ('petAdDetails.loading' | translate) : ('petAdDetails.meetPet' |
+                            translate: {name: petAd.petName}) }}</span>
+                    </button>
+                </div>
+
+                <!-- Breed Information Section (appears after clicking Meet Pet) -->
+                <div class="breed-info-section" *ngIf="showBreedInfo">
+                    <div class="breed-info-card" *ngIf="breedInfo && !isLoadingBreedInfo">
+                        <div class="breed-header">
+                            <h3>{{ 'petAdDetails.breedInfo.title' | translate: {breed: breedInfo.name} }}</h3>
+                        </div>
+
+                        <div class="breed-image" *ngIf="breedInfo.imageUrl">
+                            <img [src]="breedInfo.imageUrl" [alt]="breedInfo.name">
+                        </div>
+
+                        <div class="breed-details">
+                            <!-- Temperament -->
+                            <div class="breed-detail-item temperament">
+                                <h4>{{ 'petAdDetails.breedInfo.temperament' | translate }}</h4>
+                                <p>{{ breedInfo.temperament }}</p>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="breed-detail-item" *ngIf="breedInfo.description">
+                                <h4>{{ 'petAdDetails.breedInfo.description' | translate }}</h4>
+                                <p>{{ breedInfo.description }}</p>
+                            </div>
+
+                            <!-- Quick Facts Grid -->
+                            <div class="quick-facts">
+                                <div class="fact-item">
+                                    <span class="fact-label">{{ 'petAdDetails.breedInfo.lifeSpan' | translate }}</span>
+                                    <span class="fact-value">{{ breedInfo.lifeSpan }}</span>
+                                </div>
+                                <div class="fact-item">
+                                    <span class="fact-label">{{ 'petAdDetails.breedInfo.weight' | translate }}</span>
+                                    <span class="fact-value">{{ breedInfo.weight }}</span>
+                                </div>
+                                <div class="fact-item" *ngIf="breedInfo.height">
+                                    <span class="fact-label">{{ 'petAdDetails.breedInfo.height' | translate }}</span>
+                                    <span class="fact-value">{{ breedInfo.height }}</span>
+                                </div>
+                                <div class="fact-item" *ngIf="breedInfo.origin">
+                                    <span class="fact-label">{{ 'petAdDetails.breedInfo.origin' | translate }}</span>
+                                    <span class="fact-value">{{ breedInfo.origin }}</span>
+                                </div>
+                            </div>
+
+                            <!-- Traits (for cats) -->
+                            <div class="traits-section" *ngIf="breedInfo.traits">
+                                <h4>{{ 'petAdDetails.breedInfo.traits' | translate }}</h4>
+                                <div class="traits-grid">
+                                    <div class="trait-item" *ngIf="breedInfo.traits.affectionLevel">
+                                        <span class="trait-label">{{ 'petAdDetails.breedInfo.affectionLevel' |
+                                            translate }}</span>
+                                        <span class="trait-stars">{{ getTraitStars(breedInfo.traits.affectionLevel)
+                                            }}</span>
+                                    </div>
+                                    <div class="trait-item" *ngIf="breedInfo.traits.childFriendly">
+                                        <span class="trait-label">{{ 'petAdDetails.breedInfo.childFriendly' | translate
+                                            }}</span>
+                                        <span class="trait-stars">{{ getTraitStars(breedInfo.traits.childFriendly)
+                                            }}</span>
+                                    </div>
+                                    <div class="trait-item" *ngIf="breedInfo.traits.dogFriendly">
+                                        <span class="trait-label">{{ 'petAdDetails.breedInfo.dogFriendly' | translate
+                                            }}</span>
+                                        <span class="trait-stars">{{ getTraitStars(breedInfo.traits.dogFriendly)
+                                            }}</span>
+                                    </div>
+                                    <div class="trait-item" *ngIf="breedInfo.traits.energyLevel">
+                                        <span class="trait-label">{{ 'petAdDetails.breedInfo.energyLevel' | translate
+                                            }}</span>
+                                        <span class="trait-stars">{{ getTraitStars(breedInfo.traits.energyLevel)
+                                            }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="api-credit">
+                            {{ 'petAdDetails.breedInfo.credit' | translate: {api: petAd.petType === 'dog' ? 'The Dog
+                            API' : 'The Cat API'} }}
+                        </div>
+                    </div>
+
+                    <div class="loading-state" *ngIf="isLoadingBreedInfo">
+                        <div class="spinner"></div>
+                        <p>{{ 'petAdDetails.loadingBreedInfo' | translate }}</p>
+                    </div>
+
+                    <div class="error-state" *ngIf="!breedInfo && !isLoadingBreedInfo">
+                        <p>{{ 'petAdDetails.breedInfoError' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Action Card -->
+            <div class="sidebar-column">
+                <div class="action-card">
+                    <div class="price-section">
+                        <span class="price-label">{{ 'petAdDetails.price' | translate }}</span>
+                        <div class="price-amount">
+                            <span class="amount">{{ petAd.price }} {{ petAd.currency }}</span>
+                            <span class="period">{{ 'sitMyPet.perDay' | translate }}</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-contact">
+                        {{ 'petAdDetails.contactOwner' | translate }}
+                    </button>
+
+                    <button class="btn-favorite" (click)="toggleFavorite()" [class.active]="petAd.isFavorite">
+                        <span class="icon">{{ petAd.isFavorite ? '❤️' : '🤍' }}</span>
+                        <span>{{ petAd.isFavorite ? ('petAdDetails.removeFromFavorites' | translate) :
+                            ('petAdDetails.addToFavorites' | translate) }}</span>
+                    </button>
+
+                    <div class="verification-badge">
+                        <span class="check-icon">✓</span>
+                        <span>{{ 'petAdDetails.verifiedOwner' | translate }}</span>
+                    </div>
+                </div>
+
+                <div class="back-link">
+                    <a routerLink="/sit-my-pet">← {{ 'petAdDetails.backToListings' | translate }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

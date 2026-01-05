@@ -3,6 +3,7 @@
         "home": "Acasă",
         "findSitter": "Găsește Îngrijitor",
         "createAd": "Creează Anunț",
+        "sitMyPet": "Îngrijește Animalul Meu",
         "about": "Despre Noi",
         "contact": "Contact",
         "faq": "Întrebări Frecvente",
@@ -276,5 +277,58 @@
         "details": "Detalii Job",
         "location": "Locație",
         "verifiedListing": "Anunț Verificat"
+    },
+    "sitMyPet": {
+        "title": "Îngrijește Animalul Meu",
+        "subtitle": "Găsește îngrijitori de încredere pentru prietenii tăi blănoși",
+        "searchPlaceholder": "Caută după nume animal, rasă sau locație...",
+        "perDay": "pe zi",
+        "resultsCount": "{{count}} oportunități de îngrijire disponibile",
+        "filters": {
+            "allLocations": "Toate Locațiile",
+            "allPetTypes": "Toate Tipurile de Animale",
+            "clear": "Șterge Filtrele"
+        },
+        "petTypes": {
+            "dog": "Câine",
+            "cat": "Pisică"
+        },
+        "noResults": {
+            "title": "Nu s-au Găsit Oportunități de Îngrijire",
+            "message": "Încearcă să ajustezi căutarea sau filtrele pentru a vedea mai multe rezultate",
+            "clearFilters": "Șterge Toate Filtrele"
+        }
+    },
+    "petAdDetails": {
+        "postedBy": "Postat de",
+        "description": "Despre Acest Animal",
+        "specialNeeds": "Cerințe Speciale de Îngrijire",
+        "location": "Locație",
+        "dates": "Datele Serviciului",
+        "meetPet": "Cunoaște pe {{name}}",
+        "loading": "Se încarcă...",
+        "loadingBreedInfo": "Se încarcă informații despre rasă...",
+        "breedInfoError": "Nu s-au putut încărca informațiile despre rasă. Vă rugăm să încercați mai târziu.",
+        "price": "Preț",
+        "contactOwner": "Contactează Proprietarul",
+        "addToFavorites": "Salvează la Favorite",
+        "removeFromFavorites": "Elimină din Favorite",
+        "verifiedOwner": "Proprietar Verificat",
+        "backToListings": "Înapoi la Anunțuri",
+        "breedInfo": {
+            "title": "Despre Rasa {{breed}}",
+            "temperament": "Temperament",
+            "description": "Descrierea Rasei",
+            "lifeSpan": "Durată de Viață",
+            "weight": "Greutate",
+            "height": "Înălțime",
+            "origin": "Origine",
+            "traits": "Trăsături de Personalitate",
+            "affectionLevel": "Nivel de Afecțiune",
+            "childFriendly": "Prietenos cu Copiii",
+            "dogFriendly": "Prietenos cu Câinii",
+            "energyLevel": "Nivel de Energie",
+            "credit": "Informațiile despre rasă furnizate de {{api}}"
+        }
     }
 }

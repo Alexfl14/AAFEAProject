@@ -1,0 +1,102 @@
+<div class="sit-my-pet-page">
+    <!-- Hero / Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>{{ 'sitMyPet.title' | translate }}</h1>
+            <p>{{ 'sitMyPet.subtitle' | translate }}</p>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="search-box">
+                <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()"
+                    [placeholder]="'sitMyPet.searchPlaceholder' | translate" class="search-input">
+            </div>
+
+            <div class="filter-controls">
+                <select [(ngModel)]="selectedLocation" (ngModelChange)="applyFilters()" class="filter-select">
+                    <option value="">{{ 'sitMyPet.filters.allLocations' | translate }}</option>
+                    <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+                </select>
+
+                <select [(ngModel)]="selectedPetType" (ngModelChange)="applyFilters()" class="filter-select">
+                    <option value="">{{ 'sitMyPet.filters.allPetTypes' | translate }}</option>
+                    <option *ngFor="let type of petTypes" [value]="type">
+                        {{ 'sitMyPet.petTypes.' + type | translate }}
+                    </option>
+                </select>
+
+                <button (click)="clearFilters()" class="btn-clear">
+                    {{ 'sitMyPet.filters.clear' | translate }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-count">
+            {{ 'sitMyPet.resultsCount' | translate: {count: filteredPetAds.length} }}
+        </div>
+
+        <!-- Pet Ads Grid -->
+        <div class="pet-ads-grid" *ngIf="filteredPetAds.length > 0">
+            <div class="pet-ad-card" *ngFor="let ad of filteredPetAds" (click)="viewPetAdDetails(ad.id)">
+                <div class="card-image">
+                    <img [src]="ad.image" [alt]="ad.petName">
+                    <button class="favorite-btn" (click)="toggleFavorite($event, ad.id)"
+                        [class.active]="ad.isFavorite">
+                        {{ ad.isFavorite ? '❤️' : '🤍' }}
+                    </button>
+                    <div class="pet-type-badge">{{ getPetTypeIcon(ad.petType) }} {{ 'sitMyPet.petTypes.' + ad.petType |
+                        translate }}</div>
+                </div>
+
+                <div class="card-content">
+                    <div class="pet-header">
+                        <h3 class="pet-name">{{ ad.petName }}</h3>
+                        <span class="breed">{{ ad.breed }}</span>
+                    </div>
+
+                    <h4 class="ad-title">{{ ad.title }}</h4>
+
+                    <p class="description">{{ ad.description | slice:0:120 }}{{ ad.description.length > 120 ? '...' : ''
+                        }}</p>
+
+                    <div class="ad-details">
+                        <div class="detail-item">
+                            <span class="icon">📍</span>
+                            <span class="text">{{ ad.location }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📅</span>
+                            <span class="text">{{ ad.startDate | date:'mediumDate' }} - {{ ad.endDate |
+                                date:'mediumDate' }}</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="owner-info">
+                            <div class="avatar">{{ ad.ownerName.charAt(0) }}</div>
+                            <span class="owner-name">{{ ad.ownerName }}</span>
+                        </div>
+                        <div class="price">
+                            <span class="amount">{{ ad.price }} {{ ad.currency }}</span>
+                            <span class="period">{{ 'sitMyPet.perDay' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" *ngIf="filteredPetAds.length === 0">
+            <div class="no-results-icon">🔍</div>
+            <h3>{{ 'sitMyPet.noResults.title' | translate }}</h3>
+            <p>{{ 'sitMyPet.noResults.message' | translate }}</p>
+            <button (click)="clearFilters()" class="btn btn-primary">
+                {{ 'sitMyPet.noResults.clearFilters' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
