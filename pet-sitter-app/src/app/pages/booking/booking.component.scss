@@ -89,14 +89,10 @@
             border-color: white;
             color: white;
             font-weight: 900;
-            box-shadow: 0 0 20px rgba(46, 196, 182, 0.6);
+            box-shadow: 0 0 20px rgba(107, 142, 103, 0.6);
         }
 
-        &.active span {
-            color: white;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+        box-shadow: 0 0 20px rgba(107, 142, 103, 0.6);
 
         &.completed .circle {
             background: var(--success-color);
@@ -116,7 +112,7 @@
 
         &.active {
             background: var(--gradient-secondary);
-            box-shadow: 0 0 12px rgba(46, 196, 182, 0.5);
+            box-shadow: 0 0 12px rgba(107, 142, 103, 0.5);
         }
     }
 }
@@ -253,8 +249,8 @@
     }
 
     &.alert-info {
-        background: rgba(66, 153, 225, 0.1);
-        border: 1px solid rgba(66, 153, 225, 0.2);
+        background: rgba(139, 168, 159, 0.1);
+        border: 1px solid rgba(139, 168, 159, 0.2);
         color: var(--text-color);
     }
 }
@@ -283,7 +279,7 @@
             margin-bottom: 0.5rem;
 
             .required {
-                color: var(--error-color);
+                color: var(--danger-color);
             }
         }
 
@@ -299,11 +295,11 @@
             &:focus {
                 outline: none;
                 border-color: var(--primary-color);
-                box-shadow: 0 0 0 3px rgba(255, 138, 91, 0.1);
+                box-shadow: 0 0 0 3px var(--shadow-color);
             }
 
             &.error {
-                border-color: var(--error-color);
+                border-color: var(--danger-color);
             }
 
             &::placeholder {
@@ -322,7 +318,7 @@
 
         .error-message {
             font-size: 0.8rem;
-            color: var(--error-color);
+            color: var(--danger-color);
             margin-top: 0.25rem;
         }
     }

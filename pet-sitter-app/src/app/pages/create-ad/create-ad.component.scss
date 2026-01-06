@@ -89,7 +89,7 @@
             border-color: white;
             color: white;
             font-weight: 900;
-            box-shadow: 0 0 20px rgba(46, 196, 182, 0.6);
+            box-shadow: 0 0 20px rgba(107, 142, 103, 0.6);
         }
 
         &.active span {
@@ -116,7 +116,7 @@
 
         &.active {
             background: var(--gradient-secondary);
-            box-shadow: 0 0 12px rgba(46, 196, 182, 0.5);
+            box-shadow: 0 0 12px rgba(107, 142, 103, 0.5);
         }
     }
 }

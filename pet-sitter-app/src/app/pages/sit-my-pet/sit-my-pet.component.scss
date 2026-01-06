@@ -1,11 +1,11 @@
 .sit-my-pet-page {
     min-height: 100vh;
-    background-color: var(--bg-secondary, #f8f9fa);
+    background-color: var(--bg-secondary);
     padding-bottom: 4rem;
 }
 
 .page-header {
-    background: linear-gradient(135deg, var(--primary-color, #6c5ce7) 0%, var(--secondary-color, #a29bfe) 100%);
+    background: var(--gradient-primary);
     color: white;
     padding: 4rem 0;
     text-align: center;
@@ -35,12 +35,12 @@
 
 .filters-section {
     background: var(--bg-primary, white);
-    color: var(--text-color, #2d3436);
+    color: var(--text-color);
     padding: 2rem;
     border-radius: 16px;
     margin-bottom: 2rem;
     box-shadow: 0 2px 12px var(--shadow-color, rgba(0, 0, 0, 0.05));
-    border: 1px solid var(--border-color, transparent);
+    border: 1px solid var(--border-color);
 
     .search-box {
         margin-bottom: 1.5rem;
@@ -48,17 +48,17 @@
         .search-input {
             width: 100%;
             padding: 0.875rem 1.25rem;
-            border: 1px solid var(--border-color, #dfe6e9);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             font-size: 1rem;
             background: var(--bg-primary, white);
-            color: var(--text-color, #2d3436);
+            color: var(--text-color);
             transition: all 0.3s ease;
 
             &:focus {
                 outline: none;
-                border-color: var(--primary-color, #6c5ce7);
-                box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 3px var(--shadow-color);
             }
 
             &::placeholder {
@@ -76,26 +76,26 @@
             flex: 1;
             min-width: 200px;
             padding: 0.875rem 1.25rem;
-            border: 1px solid var(--border-color, #dfe6e9);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             background: var(--bg-primary, white);
-            color: var(--text-color, #2d3436);
+            color: var(--text-color);
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s ease;
 
             &:focus {
                 outline: none;
-                border-color: var(--primary-color, #6c5ce7);
-                box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 3px var(--shadow-color);
             }
         }
 
         .btn-clear {
             padding: 0.875rem 1.75rem;
             background: var(--bg-secondary, #f8f9fa);
-            color: var(--text-color, #2d3436);
-            border: 1px solid var(--border-color, #dfe6e9);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
@@ -111,14 +111,14 @@
     .price-filter {
         margin-top: 1.5rem;
         padding-top: 1.5rem;
-        border-top: 1px solid var(--border-color, #dfe6e9);
+        border-top: 1px solid var(--border-color);
 
         .filter-label {
             display: block;
             margin-bottom: 0.75rem;
             font-weight: 600;
             font-size: 0.95rem;
-            color: var(--text-color, #2d3436);
+            color: var(--text-color);
         }
 
         .price-range-values {
@@ -128,7 +128,7 @@
             margin-bottom: 1rem;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--primary-color, #6c5ce7);
+            color: var(--primary-color);
 
             span:nth-child(2) {
                 color: var(--text-muted, #636e72);
@@ -154,14 +154,14 @@
                 &::-webkit-slider-track {
                     width: 100%;
                     height: 6px;
-                    background: var(--border-color, #dfe6e9);
+                    background: var(--border-color);
                     border-radius: 3px;
                 }
 
                 &::-moz-range-track {
                     width: 100%;
                     height: 6px;
-                    background: var(--border-color, #dfe6e9);
+                    background: var(--border-color);
                     border-radius: 3px;
                 }
 
@@ -171,7 +171,7 @@
                     pointer-events: all;
                     width: 18px;
                     height: 18px;
-                    background: var(--primary-color, #6c5ce7);
+                    background: var(--primary-color);
                     border-radius: 50%;
                     cursor: pointer;
                     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -186,7 +186,7 @@
                     pointer-events: all;
                     width: 18px;
                     height: 18px;
-                    background: var(--primary-color, #6c5ce7);
+                    background: var(--primary-color);
                     border-radius: 50%;
                     cursor: pointer;
                     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -199,11 +199,11 @@
                 }
 
                 &.range-max::-webkit-slider-thumb {
-                    background: var(--secondary-color, #a29bfe);
+                    background: var(--secondary-color);
                 }
 
                 &.range-max::-moz-range-thumb {
-                    background: var(--secondary-color, #a29bfe);
+                    background: var(--secondary-color);
                 }
             }
         }
@@ -229,13 +229,13 @@
 
 .pet-ad-card {
     background: var(--bg-primary, white);
-    color: var(--text-color, #2d3436);
+    color: var(--text-color);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px var(--shadow-color, rgba(0, 0, 0, 0.08));
     transition: all 0.3s ease;
     cursor: pointer;
-    border: 1px solid var(--border-color, transparent);
+    border: 1px solid var(--border-color);
 
     &:hover {
         transform: translateY(-8px);
@@ -308,12 +308,12 @@
             .pet-name {
                 font-size: 1.5rem;
                 font-weight: 700;
-                color: var(--text-color, #2d3436);
+                color: var(--text-color);
                 margin: 0 0 0.25rem 0;
             }
 
             .breed {
-                color: var(--primary-color, #6c5ce7);
+                color: var(--primary-color);
                 font-size: 0.9rem;
                 font-weight: 600;
             }
@@ -322,7 +322,7 @@
         .ad-title {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--text-color, #2d3436);
+            color: var(--text-color);
             margin: 0 0 0.75rem 0;
         }
 
@@ -339,7 +339,7 @@
             gap: 0.5rem;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color, #dfe6e9);
+            border-bottom: 1px solid var(--border-color);
 
             .detail-item {
                 display: flex;
@@ -368,7 +368,7 @@
                     width: 36px;
                     height: 36px;
                     border-radius: 50%;
-                    background: linear-gradient(135deg, var(--primary-color, #6c5ce7), var(--secondary-color, #a29bfe));
+                    background: var(--gradient-primary);
                     color: white;
                     display: flex;
                     align-items: center;
@@ -380,7 +380,7 @@
                 .owner-name {
                     font-size: 0.9rem;
                     font-weight: 600;
-                    color: var(--text-color, #2d3436);
+                    color: var(--text-color);
                 }
             }
 
@@ -392,7 +392,7 @@
                 .amount {
                     font-size: 1.25rem;
                     font-weight: 700;
-                    color: var(--primary-color, #6c5ce7);
+                    color: var(--primary-color);
                 }
 
                 .period {
@@ -419,7 +419,7 @@
     h3 {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
-        color: var(--text-color, #2d3436);
+        color: var(--text-color);
     }
 
     p {
@@ -429,7 +429,7 @@
 
     .btn {
         padding: 0.875rem 2rem;
-        background: var(--primary-color, #6c5ce7);
+        background: var(--primary-color);
         color: white;
         border: none;
         border-radius: 12px;
@@ -438,22 +438,27 @@
         transition: all 0.2s ease;
 
         &:hover {
-            background: var(--primary-dark, #5649c0);
+            background: var(--primary-dark);
             transform: translateY(-2px);
         }
     }
 }
 
 @keyframes heartBeat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     25% {
         transform: scale(1.2);
     }
+
     50% {
         transform: scale(1);
     }
+
     75% {
         transform: scale(1.1);
     }

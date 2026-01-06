@@ -1,6 +1,6 @@
 .pet-ad-details-page {
     min-height: 100vh;
-    background-color: var(--bg-secondary, #f8f9fa);
+    background-color: var(--bg-secondary);
     padding-bottom: 4rem;
 }
 
@@ -46,11 +46,11 @@
 .main-column,
 .action-card {
     background: var(--bg-primary, white);
-    color: var(--text-color, #2d3436);
+    color: var(--text-color);
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 4px 20px var(--shadow-color, rgba(0, 0, 0, 0.1));
-    border: 1px solid var(--border-color, transparent);
+    border: 1px solid var(--border-color);
 }
 
 .header-section {
@@ -58,7 +58,7 @@
 
     .pet-type-badge {
         display: inline-block;
-        background: var(--primary-color, #6c5ce7);
+        background: var(--primary-color);
         color: white;
         padding: 0.5rem 1rem;
         border-radius: 20px;
@@ -71,12 +71,12 @@
         font-size: 2.5rem;
         font-weight: 700;
         margin: 0 0 0.5rem 0;
-        color: var(--text-color, #2d3436);
+        color: var(--text-color);
     }
 
     .breed {
         font-size: 1.1rem;
-        color: var(--primary-color, #6c5ce7);
+        color: var(--primary-color);
         font-weight: 600;
         margin: 0;
     }
@@ -85,7 +85,7 @@
 .ad-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-color, #2d3436);
+    color: var(--text-color);
     margin: 0 0 1.5rem 0;
 }
 
@@ -94,7 +94,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: var(--bg-secondary, #f8f9fa);
+    background: var(--bg-secondary);
     border-radius: 12px;
     margin-bottom: 2rem;
 
@@ -102,7 +102,7 @@
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary-color, #6c5ce7), var(--secondary-color, #a29bfe));
+        background: var(--gradient-primary);
         color: white;
         display: flex;
         align-items: center;
@@ -125,7 +125,7 @@
         .owner-name {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-color, #2d3436);
+            color: var(--text-color);
         }
     }
 }
@@ -138,7 +138,7 @@
         font-size: 1.25rem;
         font-weight: 600;
         margin: 0 0 1rem 0;
-        color: var(--text-color, #2d3436);
+        color: var(--text-color);
     }
 
     p {
@@ -163,7 +163,7 @@
 
     p {
         margin: 0;
-        color: var(--text-color, #2d3436);
+        color: var(--text-color);
     }
 }
 
@@ -178,7 +178,7 @@
         align-items: center;
         gap: 1rem;
         padding: 1rem;
-        background: var(--bg-secondary, #f8f9fa);
+        background: var(--bg-secondary);
         border-radius: 12px;
 
         .icon {
@@ -199,7 +199,7 @@
             .value {
                 font-size: 0.95rem;
                 font-weight: 600;
-                color: var(--text-color, #2d3436);
+                color: var(--text-color);
             }
         }
     }
@@ -211,7 +211,7 @@
     .btn-meet-pet {
         width: 100%;
         padding: 1.25rem 2rem;
-        background: linear-gradient(135deg, var(--primary-color, #6c5ce7), var(--secondary-color, #a29bfe));
+        background: var(--gradient-primary);
         color: white;
         border: none;
         border-radius: 12px;
@@ -230,7 +230,7 @@
 
         &:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 8px 20px rgba(107, 142, 103, 0.3);
         }
 
         &:disabled {
@@ -244,11 +244,11 @@
     margin-top: 2rem;
 
     .breed-info-card {
-        background: var(--bg-secondary, #f8f9fa);
+        background: var(--bg-secondary);
         border-radius: 16px;
         padding: 2rem;
         margin-top: 1.5rem;
-        border: 2px solid var(--primary-color, #6c5ce7);
+        border: 2px solid var(--primary-color);
 
         .breed-header {
             margin-bottom: 1.5rem;
@@ -256,7 +256,7 @@
             h3 {
                 font-size: 1.75rem;
                 font-weight: 700;
-                color: var(--primary-color, #6c5ce7);
+                color: var(--primary-color);
                 margin: 0;
             }
         }
@@ -279,7 +279,7 @@
             h4 {
                 font-size: 1.1rem;
                 font-weight: 600;
-                color: var(--text-color, #2d3436);
+                color: var(--text-color);
                 margin: 0 0 0.5rem 0;
             }
 
@@ -295,7 +295,7 @@
                 border-radius: 12px;
 
                 p {
-                    color: var(--text-color, #2d3436);
+                    color: var(--text-color);
                     font-weight: 500;
                 }
             }
@@ -325,7 +325,7 @@
                 .fact-value {
                     font-size: 1rem;
                     font-weight: 600;
-                    color: var(--text-color, #2d3436);
+                    color: var(--text-color);
                 }
             }
         }
@@ -336,7 +336,7 @@
             h4 {
                 font-size: 1.1rem;
                 font-weight: 600;
-                color: var(--text-color, #2d3436);
+                color: var(--text-color);
                 margin: 0 0 1rem 0;
             }
 
@@ -355,7 +355,7 @@
 
                     .trait-label {
                         font-size: 0.9rem;
-                        color: var(--text-color, #2d3436);
+                        color: var(--text-color);
                         font-weight: 500;
                     }
 
@@ -370,7 +370,7 @@
         .api-credit {
             margin-top: 1.5rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--border-color, #dfe6e9);
+            border-top: 1px solid var(--border-color);
             font-size: 0.85rem;
             color: var(--text-muted, #636e72);
             text-align: center;
@@ -385,8 +385,8 @@
         .spinner {
             width: 50px;
             height: 50px;
-            border: 4px solid var(--border-color, #dfe6e9);
-            border-top-color: var(--primary-color, #6c5ce7);
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 1rem;
@@ -406,7 +406,7 @@
         .price-section {
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color, #dfe6e9);
+            border-bottom: 1px solid var(--border-color);
 
             .price-label {
                 font-size: 0.85rem;
@@ -423,7 +423,7 @@
                 .amount {
                     font-size: 2rem;
                     font-weight: 700;
-                    color: var(--primary-color, #6c5ce7);
+                    color: var(--primary-color);
                 }
 
                 .period {
@@ -450,20 +450,20 @@
         }
 
         .btn-contact {
-            background: var(--primary-color, #6c5ce7);
+            background: var(--primary-color);
             color: white;
             margin-bottom: 1rem;
 
             &:hover {
-                background: var(--primary-dark, #5649c0);
+                background: var(--primary-dark);
                 transform: translateY(-2px);
             }
         }
 
         .btn-favorite {
-            background: var(--bg-secondary, #f8f9fa);
-            color: var(--text-color, #2d3436);
-            border: 1px solid var(--border-color, #dfe6e9);
+            background: var(--bg-secondary);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
 
             .icon {
                 font-size: 1.25rem;
@@ -511,13 +511,13 @@
         text-align: center;
 
         a {
-            color: var(--primary-color, #6c5ce7);
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.2s ease;
 
             &:hover {
-                color: var(--primary-dark, #5649c0);
+                color: var(--primary-dark);
             }
         }
     }
@@ -530,21 +530,27 @@
 }
 
 @keyframes heartBeat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     25% {
         transform: scale(1.1);
     }
+
     50% {
         transform: scale(1);
     }
+
     75% {
         transform: scale(1.05);
     }
 }
 
 :host-context(.dark-mode) {
+
     .main-column,
     .action-card {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);

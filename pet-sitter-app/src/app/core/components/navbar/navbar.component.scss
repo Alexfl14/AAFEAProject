@@ -4,7 +4,7 @@
   z-index: 1000;
   background: var(--nav-bg);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 16px rgba(255, 138, 91, 0.08);
+  box-shadow: 0 2px 16px rgba(107, 142, 103, 0.08);
   transition: all 0.3s ease;
   border-bottom: 1px solid var(--border-light);
 
@@ -34,7 +34,7 @@
 
     .logo-icon {
       font-size: 2.25rem;
-      filter: drop-shadow(0 2px 4px rgba(255, 138, 91, 0.3));
+      filter: drop-shadow(0 2px 4px rgba(107, 142, 103, 0.3));
     }
 
     .logo-text {
