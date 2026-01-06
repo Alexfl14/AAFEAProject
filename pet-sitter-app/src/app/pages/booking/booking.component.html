@@ -1,31 +1,45 @@
 <div class="booking-page">
     <!-- Header -->
     <div class="page-header">
-        <div class="container">
-            <h1>{{ 'booking.title' | translate }}</h1>
-            <p>{{ 'booking.subtitle' | translate }}</p>
-        </div>
+        <h1>{{ 'booking.title' | translate }}</h1>
+        <p>{{ 'booking.subtitle' | translate }}</p>
     </div>
 
-    <div class="container">
+    <div class="wizard-container">
         <!-- Progress Indicator -->
-        <div class="progress-indicator">
-            <div class="step" *ngFor="let step of [1, 2, 3, 4]" [class.active]="currentStep === step"
-                [class.completed]="isStepCompleted(step)" (click)="isStepCompleted(step) ? goToStep(step) : null"
-                [class.clickable]="isStepCompleted(step)">
-                <div class="step-number">
-                    <span *ngIf="!isStepCompleted(step) || currentStep === step">{{ step }}</span>
-                    <span *ngIf="isStepCompleted(step) && currentStep !== step" class="check-icon">✓</span>
+        <div class="wizard-progress">
+            <div class="progress-step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+                <div class="circle">
+                    <span *ngIf="currentStep <= 1">1</span>
+                    <span *ngIf="currentStep > 1">✓</span>
                 </div>
-                <div class="step-label">{{ getStepTitle(step) | translate }}</div>
+                <span>{{ getStepTitle(1) | translate }}</span>
             </div>
-            <div class="progress-bar">
-                <div class="progress-fill" [style.width.%]="((currentStep - 1) / (totalSteps - 1)) * 100"></div>
+            <div class="progress-line" [class.active]="currentStep >= 2"></div>
+            <div class="progress-step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+                <div class="circle">
+                    <span *ngIf="currentStep <= 2">2</span>
+                    <span *ngIf="currentStep > 2">✓</span>
+                </div>
+                <span>{{ getStepTitle(2) | translate }}</span>
+            </div>
+            <div class="progress-line" [class.active]="currentStep >= 3"></div>
+            <div class="progress-step" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+                <div class="circle">
+                    <span *ngIf="currentStep <= 3">3</span>
+                    <span *ngIf="currentStep > 3">✓</span>
+                </div>
+                <span>{{ getStepTitle(3) | translate }}</span>
+            </div>
+            <div class="progress-line" [class.active]="currentStep >= 4"></div>
+            <div class="progress-step" [class.active]="currentStep >= 4">
+                <div class="circle">4</div>
+                <span>{{ getStepTitle(4) | translate }}</span>
             </div>
         </div>
 
         <!-- Booking Form Card -->
-        <div class="booking-card">
+        <div class="wizard-card">
             <!-- Step 1: Service Confirmation -->
             <div class="step-content" *ngIf="currentStep === 1">
                 <h2>{{ 'booking.step1.title' | translate }}</h2>
@@ -268,7 +282,7 @@
             </div>
 
             <!-- Navigation Buttons -->
-            <div class="step-navigation">
+            <div class="wizard-footer">
                 <button type="button" class="btn btn-secondary" (click)="previousStep()"
                     *ngIf="currentStep > 1" [disabled]="isSubmitting">
                     {{ 'booking.navigation.previous' | translate }}

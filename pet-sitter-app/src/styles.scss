@@ -1,55 +1,104 @@
-/* Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Global Styles - Pet Sitter Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-/* CSS Variables - Light Mode */
+/* CSS Variables - Light Mode (Forest & Earth Theme) */
 :root {
-  /* Colors */
-  --primary-color: #6366f1;
-  --secondary-color: #8b5cf6;
-  --accent-color: #ec4899;
+  /* Primary Forest & Earth Colors */
+  --primary-color: #6b8e67;        /* Forest Green - Natural, calming */
+  --primary-dark: #5a8052;         /* Darker forest green for hover states */
+  --secondary-color: #7fa577;      /* Sage Green - Fresh, welcoming */
+  --secondary-dark: #6b9163;       /* Darker sage green */
+  --accent-color: #c9a66b;         /* Warm Brown - Earthy, grounded */
+  --accent-light: #d9b883;         /* Lighter warm brown */
+
+  /* Success & Status Colors */
+  --success-color: #7fa577;        /* Sage Green - Positive, natural */
+  --warning-color: #d9a66b;        /* Warm amber - Attention */
+  --danger-color: #d9766c;         /* Soft terracotta - Alert */
+  --info-color: #8ba89f;           /* Muted teal - Information */
 
   /* Background Colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --nav-bg: #ffffff;
-  --footer-bg: #f8fafc;
-  --hover-bg: #f1f5f9;
+  --bg-primary: #f5f3ed;           /* Warm cream - Welcoming */
+  --bg-secondary: #ede8db;         /* Light beige - Soft, comfortable */
+  --bg-tertiary: #e8e4d8;          /* Warm taupe - Subtle sections */
+  --nav-bg: #faf8f3;               /* Cream white navbar */
+  --footer-bg: #4a5548;            /* Dark forest for footer */
+  --card-bg: #faf8f3;              /* Warm white cards */
+  --hover-bg: #e8f4e6;             /* Light green hover */
 
   /* Text Colors */
-  --text-color: #1e293b;
-  --text-muted: #64748b;
-  --footer-text: #475569;
+  --text-color: #4a5548;           /* Dark forest - Primary text */
+  --text-secondary: #5a6b57;       /* Medium forest - Secondary text */
+  --text-muted: #8b7765;           /* Warm brown - Muted text */
+  --text-light: #a69888;           /* Light brown */
+  --footer-text: #e8e4d8;          /* Light text for dark footer */
+  --heading-color: #3d4a3a;        /* Deep forest for headings */
 
   /* Border & Shadow */
-  --border-color: #e2e8f0;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: #d4c9b8;
+  --border-light: #e8e4d8;
+  --shadow-sm: 0 1px 3px rgba(74, 85, 72, 0.08);
+  --shadow-md: 0 4px 12px rgba(107, 142, 103, 0.15);
+  --shadow-lg: 0 10px 30px rgba(107, 142, 103, 0.2);
+  --shadow-color: rgba(107, 142, 103, 0.12);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6b8e67 0%, #4a7c59 100%);
+  --gradient-secondary: linear-gradient(135deg, #7fa577 0%, #6b9163 100%);
+  --gradient-accent: linear-gradient(135deg, #c9a66b 0%, #d9b883 100%);
+  --gradient-hero: linear-gradient(135deg, #e8f4e6 0%, #f5f3ed 100%);
 
   /* Transitions */
   --transition-speed: 0.3s;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark Mode Variables */
+/* Dark Mode Variables (Forest & Earth Theme) */
 :root.dark {
-  /* Colors - keeping the same accent colors for consistency */
-  --primary-color: #818cf8;
-  --secondary-color: #a78bfa;
-  --accent-color: #f472b6;
+  /* Primary Forest & Earth Colors - Adjusted for dark mode */
+  --primary-color: #8ba989;        /* Lighter forest green for visibility */
+  --primary-dark: #6b8e67;
+  --secondary-color: #9bc093;      /* Brighter sage green */
+  --secondary-dark: #7fa577;
+  --accent-color: #d9b883;         /* Lighter warm brown */
+  --accent-light: #e8c99a;
+
+  /* Success & Status Colors */
+  --success-color: #9bc093;
+  --warning-color: #e8c99a;
+  --danger-color: #e89689;
+  --info-color: #a8c4bd;
 
   /* Background Colors */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --nav-bg: #1e293b;
-  --footer-bg: #1e293b;
-  --hover-bg: #334155;
+  --bg-primary: #2d3630;           /* Dark forest */
+  --bg-secondary: #3d4a3a;         /* Medium dark forest */
+  --bg-tertiary: #4a5548;          /* Lighter dark forest */
+  --nav-bg: #3d4a3a;               /* Dark navbar */
+  --footer-bg: #2d3630;            /* Darker footer */
+  --card-bg: #3d4a3a;              /* Dark cards */
+  --hover-bg: #4a5e47;             /* Hover state */
 
   /* Text Colors */
-  --text-color: #f1f5f9;
-  --text-muted: #94a3b8;
-  --footer-text: #cbd5e1;
+  --text-color: #e8e4d8;           /* Light text */
+  --text-secondary: #d4c9b8;       /* Slightly dimmer */
+  --text-muted: #a69888;           /* Muted */
+  --text-light: #8b7765;           /* Subtle */
+  --footer-text: #d4c9b8;          /* Footer text */
+  --heading-color: #f5f3ed;        /* Cream headings */
 
   /* Border & Shadow */
-  --border-color: #334155;
+  --border-color: #5a6b57;
+  --border-light: #4a5548;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-color: rgba(0, 0, 0, 0.3);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #8ba989 0%, #6b8e67 100%);
+  --gradient-secondary: linear-gradient(135deg, #9bc093 0%, #7fa577 100%);
+  --gradient-accent: linear-gradient(135deg, #d9b883 0%, #e8c99a 100%);
+  --gradient-hero: linear-gradient(135deg, #3d4a3a 0%, #4a5548 100%);
 }
 
 /* Reset & Base Styles */
@@ -67,7 +116,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: var(--bg-primary);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.7;
   transition: background var(--transition-speed), color var(--transition-speed);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -75,9 +124,11 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Inter', sans-serif;
   font-weight: 600;
-  line-height: 1.2;
-  color: var(--text-color);
+  line-height: 1.3;
+  color: var(--heading-color);
+  letter-spacing: -0.02em;
 }
 
 h1 {
@@ -127,34 +178,64 @@ button {
 
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 2rem;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all var(--transition-speed);
+  transition: all var(--transition-speed) var(--transition-smooth);
   text-decoration: none;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  letter-spacing: 0.01em;
 
   &.btn-primary {
-    background: var(--primary-color);
+    background: var(--gradient-primary);
     color: white;
+    box-shadow: var(--shadow-md);
 
     &:hover {
-      background: var(--secondary-color);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px var(--shadow-color);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    &:active {
+      transform: translateY(-1px);
     }
   }
 
   &.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  &.btn-outline {
     background: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
+    box-shadow: none;
 
     &:hover {
       background: var(--primary-color);
       color: white;
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &.btn-accent {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
     }
   }
 }

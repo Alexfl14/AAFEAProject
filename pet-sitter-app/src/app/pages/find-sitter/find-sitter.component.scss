@@ -3,25 +3,38 @@
 
   // Page Header
   .page-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--gradient-secondary);
     color: white;
-    padding: 3rem 0;
+    padding: 4rem 0;
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '🐾';
+      position: absolute;
+      bottom: 10%;
+      left: 8%;
+      font-size: 6rem;
+      opacity: 0.15;
+    }
 
     h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
       color: white;
+      font-family: 'Poppins', sans-serif;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
       @media (max-width: 768px) {
-        font-size: 2rem;
+        font-size: 2.25rem;
       }
     }
 
     p {
-      font-size: 1.125rem;
-      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.95);
     }
   }
 
@@ -39,13 +52,14 @@
 
   // Filters Sidebar
   .filters-sidebar {
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
     height: fit-content;
     position: sticky;
     top: 1rem;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-md);
 
     @media (max-width: 968px) {
       position: static;
